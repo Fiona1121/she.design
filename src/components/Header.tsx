@@ -10,12 +10,17 @@ const Header: React.FC = () => {
     <div className="px-6 sm:px-16 flex justify-center items-center">
       <div className="xl:max-w-[1280px] w-full">
         <nav className="w-full flex py-6 justify-between items-center navbar">
-          <StaticImage
-            src="../assets/logo.svg"
-            alt="She.Design Logo"
-            placeholder="blurred"
-            height={32}
-          />
+          <div
+            className="logo-placeholder cursor-pointer"
+            onClick={() => (window.location.href = "/")}
+          >
+            <StaticImage
+              src="../assets/logo.svg"
+              alt="She.Design Logo"
+              placeholder="blurred"
+              height={32}
+            />
+          </div>
           <ul className="list-none sm:flex hidden justify-end items-center flex-1">
             {navLinks.map((nav, index) => (
               <li
