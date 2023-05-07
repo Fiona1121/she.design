@@ -55,7 +55,7 @@ const SEO: React.FC<SEOProps> = (props) => {
     keywords = [],
   } = data.contentfulConfiguration;
 
-  const siteTitle = props.title ? `${title} | ${props.title}` : title;
+  const siteTitle = props.title ? `${props.title} | ${title}` : title;
   const siteDescription = props.description || description;
   const siteUrl = props.url || url;
   const siteAuthor = props.author || author;
