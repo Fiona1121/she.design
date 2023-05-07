@@ -17,3 +17,50 @@
 .menu-item:hover {
   text-shadow: 4px 4px 10px rgba(255, 255, 255, 0.9);
 }
+
+.indicators {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.indicator.active {
+  background-color: #bbb;
+}
+
+.morebox span {
+  display: block;
+  width: 25px;
+  height: 25px;
+  border-bottom: 3px solid #fff;
+  border-right: 3px solid #fff;
+  transform: rotate(45deg);
+  margin: -8px;
+  animation: morebox 3s infinite;
+}
+
+.morebox span:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+@keyframes morebox {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-20px, -20px);
+  }
+  50% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(20px, 20px);
+  }
+}

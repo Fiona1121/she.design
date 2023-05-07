@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
   `);
 
   return (
-    <section className="px-6 sm:px-16 flex justify-center items-center py-6">
+    <section className="px-6 sm:px-16 flex justify-center items-center py-6 mt-10">
       <div className="xl:max-w-[1280px] w-full flex-col">
         <div
           className="w-full flex flex-center items-center flex-col pt-6 cursor-pointer"

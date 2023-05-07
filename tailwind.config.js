@@ -14,6 +14,19 @@ module.exports = {
       fontFamily: {
         libre: ["Abhaya Libre", "sans-serif"],
       },
+      animation: {
+        underline: "underline 1s ease-in-out forwards",
+      },
+      keyframes: {
+        underline: {
+          "0%": {
+            "outline-bottom": "none",
+          },
+          "100%": {
+            "outline-bottom": "1px solid #000",
+          },
+        },
+      },
     },
     screens: {
       xs: "480px",

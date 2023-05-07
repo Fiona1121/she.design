@@ -7,9 +7,9 @@ const Header: React.FC = () => {
   const [toggle, setToggle] = React.useState(false);
 
   return (
-    <div className="px-6 sm:px-16 flex justify-center items-center">
+    <div className="px-6 sm:px-16 flex justify-center items-center fixed top-0 left-0 w-full bg-black/20 z-50">
       <div className="xl:max-w-[1280px] w-full">
-        <nav className="w-full flex py-6 justify-between items-center navbar">
+        <nav className="w-full flex py-4 justify-between items-center navbar">
           <div
             className="logo-placeholder cursor-pointer"
             onClick={() => (window.location.href = "/")}
