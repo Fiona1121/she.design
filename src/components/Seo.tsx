@@ -8,13 +8,13 @@ type MetaItem = {
 };
 
 type SEOProps = {
-  title?: string;
-  description?: string;
-  url?: string;
-  author?: string;
-  keywords?: string[];
-  meta?: MetaItem[];
-  image?: string;
+  title?: string | null;
+  description?: string | null;
+  url?: string | null;
+  author?: string | null;
+  keywords?: string[] | null;
+  meta?: MetaItem[] | null;
+  image?: string | null;
 };
 
 const SEO: React.FC<SEOProps> = (props) => {

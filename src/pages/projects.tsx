@@ -30,6 +30,10 @@ const ProjectsPage = ({ data }: PageProps<Queries.ProjectsPageQuery>) => {
 
   const hasMore = filteredData.length > page * 5;
 
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <Layout>
       <SEO title={data.contentfulLayoutProjects?.title || "作品集"} />
@@ -73,7 +77,7 @@ const ProjectsPage = ({ data }: PageProps<Queries.ProjectsPageQuery>) => {
                 {tabs.map((tab) => (
                   <div
                     key={tab.id}
-                    className={`my-5 mx-20 pb-2 font-libre font-normal text-[24px] cursor-pointer text-white ${
+                    className={`my-5 mx-20 pb-2 font-libre font-normal text-[24px] cursor-pointer ${
                       active.id === tab.id
                         ? "border-b-[1px] border-white"
                         : "border-none"
@@ -103,7 +107,7 @@ const ProjectsPage = ({ data }: PageProps<Queries.ProjectsPageQuery>) => {
                         <div
                           className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
                         >
-                          <p className="text-white text-[22px] font-light font-libre">
+                          <p className="text-[22px] font-light font-libre">
                             {node?.title}
                           </p>
                         </div>
@@ -126,7 +130,7 @@ const ProjectsPage = ({ data }: PageProps<Queries.ProjectsPageQuery>) => {
                       <div
                         className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
                       >
-                        <p className="text-white text-[22px] font-light font-libre">
+                        <p className="text-[22px] font-light font-libre">
                           {node?.title}
                         </p>
                       </div>

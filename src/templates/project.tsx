@@ -1,8 +1,7 @@
-import { HeadFC, HeadProps, PageProps } from "gatsby";
 import * as React from "react";
 import Layout from "../components/Layout";
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import Seo from "../components/Seo";
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 
 interface ProjectProps {
   pageContext: {
@@ -18,6 +17,7 @@ const Project = ({ pageContext }: ProjectProps) => {
   const { title, description, heroImage, types, bgColor } = pageContext;
   return (
     <Layout>
+      <Seo title={pageContext.title} description={pageContext.description} />
       <main>
         <section className="px-6 sm:px-16 pt-20 pb-8 h-min-[100vh]">
           <div className="xl:max-w-[1280px] w-full h-full">
@@ -34,10 +34,10 @@ const Project = ({ pageContext }: ProjectProps) => {
             <div className="relative z-10">
               <div className="container mx-auto px-4">
                 <div className="flex flex-col items-center justify-center h-screen">
-                  <h1 className="text-5xl font-bold text-white text-center">
+                  <h1 className="text-5xl font-boldtext-center">
                     {title}
                   </h1>
-                  <p className="text-white text-center">{description}</p>
+                  <p className="text-center">{description}</p>
                   <div className="flex flex-wrap justify-center items-center mt-10">
                     {types.map((type) => (
                       <div className="mx-2">
@@ -46,7 +46,7 @@ const Project = ({ pageContext }: ProjectProps) => {
                           alt="Branding"
                           className="w-10 h-10"
                         />
-                        <p className="text-white text-center">{type}</p>
+                        <p className="text-center">{type}</p>
                       </div>
                     ))}
                   </div>
@@ -74,7 +74,3 @@ const Project = ({ pageContext }: ProjectProps) => {
 };
 
 export default Project;
-
-export const Head = ({ pageContext }: ProjectProps) => (
-  <Seo title={pageContext.title} description={pageContext.description} />
-);

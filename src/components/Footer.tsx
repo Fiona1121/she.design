@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
             height={22}
             placeholder="blurred"
           />
-          <p className="text-white font-libre text-[22px]">Top</p>
+          <p className="font-libre text-[22px]">Top</p>
         </div>
         <div className="w-full flex justify-end items-center flex-row">
           <div

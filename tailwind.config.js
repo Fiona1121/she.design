@@ -13,6 +13,7 @@ module.exports = {
       },
       fontFamily: {
         libre: ["Abhaya Libre", "sans-serif"],
+        montserrat: ["Montserrat", "Noto Sans TC", "sans-serif"],
       },
       animation: {
         underline: "underline 1s ease-in-out forwards",
