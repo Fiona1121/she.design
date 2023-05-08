@@ -18,7 +18,7 @@ const ServicesPage = ({ data }: PageProps<Queries.ServicesPageQuery>) => {
       />
       <section className="mx-6 sm:mx-24 flex justify-center">
         <div className="xl:max-w-[1280px] w-full h-full pt-20 sm:pt-28 pb-8 px-4 sm:px-6">
-          <h4 className="font-montserrat font-medium">
+          <h4 className="font-montserrat font-medium leading-relaxed">
             專業諮詢規劃 用心執行完成
             <br />
             Open process consultation and support,
@@ -30,7 +30,9 @@ const ServicesPage = ({ data }: PageProps<Queries.ServicesPageQuery>) => {
       <section className="mx-6 sm:mx-24 flex justify-center">
         <div className="xl:max-w-[1280px] w-full h-full flex flex-col sm:flex sm:flex-row pt-8 pb-16 px-4 sm:px-6 border-b-[1px] gap-6">
           <div className="w-full sm:w-1/5">
-            <h4 className="font-montserrat font-medium w-[min-content] whitespace-break-spaces">Design Services</h4>
+            <h4 className="font-montserrat font-medium w-[min-content] whitespace-break-spaces">
+              Design Services
+            </h4>
           </div>
           <ul className="w-full sm:w-3/5 grid md:grid-cols-2">
             {contentfulLayoutServices?.services?.map(
@@ -111,13 +113,13 @@ const ServicesPage = ({ data }: PageProps<Queries.ServicesPageQuery>) => {
                     </div>
                     <div className="flex">
                       <div className="w-[60px] font-semibold">Mail</div>
-                      <div className="font-montserrat">
+                      <div className="font-montserrat hover:text-gray-300">
                         <a href={`mailto:${contact.email}`}>{contact.email}</a>
                       </div>
                     </div>
                     <div className="flex">
                       <div className="w-[60px] font-semibold">Line</div>
-                      <div className="font-montserrat">
+                      <div className="font-montserrat hover:text-gray-300">
                         <a href={contact.line}>{contact.line}</a>
                       </div>
                     </div>
