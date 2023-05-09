@@ -16,28 +16,44 @@ export const createPages: GatsbyNode["createPages"] = async ({
         nodes {
           id
           title
+          title_en
+          brand
           description {
-            description
+            childMarkdownRemark {
+              excerpt(pruneLength: 300)
+              html
+            }
           }
           heroImage {
             gatsbyImageData(width: 1000, placeholder: BLURRED)
           }
           types
           bgColor
+          gallery {
+            images {
+              gatsbyImageData(placeholder: BLURRED, width: 1000)
+            }
+            widthRatio
+            height
+          }
         }
       }
     }
   `);
   result.data?.allContentfulItemProject.nodes.forEach((node: any) => {
+    const slug = encodeURI(node.title_en.toLowerCase().replace(/\s/g, "-"));
     createPage({
-      path: `/project/${node.title}`,
+      path: `/project/${slug}`,
       component: path.resolve("./src/templates/project.tsx"),
       context: {
         title: node.title,
-        description: node.description.description,
+        title_en: node.title_en,
+        brand: node.brand,
+        description: node.description.childMarkdownRemark,
         heroImage: node.heroImage.gatsbyImageData,
         types: node.types,
         bgColor: node.bgColor,
+        gallery: node.gallery,
       },
     });
   });

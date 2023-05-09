@@ -35,6 +35,77 @@
   @apply text-white;
   @apply tracking-wide;
 }
+html, body {
+  @apply bg-primary;
+}
+
+.project-description .h1 {
+  @apply text-4xl font-bold mb-8;
+}
+
+.project-description .h2 {
+  @apply text-3xl mb-6;
+}
+
+.project-description .h3 {
+  @apply text-2xl mb-6;
+}
+
+.project-description .h4 {
+  @apply text-xl mb-4;
+}
+
+.project-description .h5 {
+  @apply text-lg mb-4;
+}
+
+.project-description .h6 {
+  @apply text-base mb-4;
+}
+
+.project-description p {
+  @apply text-base mb-4;
+}
+
+.project-description ul {
+  @apply list-disc list-inside mb-4;
+}
+
+.project-description ol {
+  @apply list-decimal list-inside mb-4;
+}
+
+.project-description li {
+  @apply mb-2;
+}
+
+.project-description a {
+  @apply text-blue-400 hover:text-blue-500;
+}
+
+.project-description blockquote {
+  @apply border-l-4 border-gray-400 pl-4 mb-4;
+}
+
+.project-description blockquote p {
+  @apply italic;
+}
+
+.project-description code {
+  @apply bg-gray-800 text-gray-100 p-2 rounded;
+}
+
+.project-description pre {
+  @apply bg-gray-800 text-gray-100 p-2 rounded;
+}
+
+.project-description img {
+  @apply rounded-lg;
+}
+
+.project-description hr {
+  @apply my-4;
+}
 
 .fade-in-section {
   opacity: 0;

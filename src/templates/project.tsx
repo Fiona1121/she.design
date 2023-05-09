@@ -6,65 +6,95 @@ import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 interface ProjectProps {
   pageContext: {
     title: string;
-    description: string;
+    brand: string;
+    description: {
+      excerpt: string;
+      html: string;
+    };
     heroImage: any;
     types: string[];
     bgColor: string;
+    gallery?: {
+      images: any[];
+      height: number;
+      widthRatio: string;
+    }[];
   };
 }
 
 const Project = ({ pageContext }: ProjectProps) => {
-  const { title, description, heroImage, types, bgColor } = pageContext;
+  const { title, brand, description, heroImage, types, bgColor, gallery } =
+    pageContext;
+
   return (
-    <Layout>
-      <Seo title={pageContext.title} description={pageContext.description} />
-      <main>
-        <section className="px-6 sm:px-16 pt-20 pb-8 h-min-[100vh]">
+    <Layout bgColor={bgColor}>
+      <Seo title={title} description={description.excerpt} />
+      <main className="min-h-screen">
+        <section className={`px-6 sm:px-16 pt-20 pb-8 flex justify-center`}>
           <div className="xl:max-w-[1280px] w-full h-full">
-            <div className="">
-              <GatsbyImage
-                image={heroImage}
-                alt={title}
-                className="h-full w-full"
+            <div className="flex flex-col gap-[15px]">
+              <div className="flex flex-col items-stretch justify-center">
+                <GatsbyImage image={heroImage} alt={title} />
+              </div>
+              {gallery &&
+                gallery?.map((row: any) => {
+                  return (
+                    <div
+                      className="grid gap-[15px]"
+                      style={{
+                        gridTemplateColumns: row.widthRatio
+                          .split(" ")
+                          .map((col: string) => `${col}fr`)
+                          .join(" "),
+                      }}
+                    >
+                      {row.images.map((image: any) => (
+                        <GatsbyImage
+                          image={image.gatsbyImageData}
+                          alt={title}
+                          className="object-cover"
+                          style={{
+                            height: `${row.height}vh`,
+                          }}
+                        />
+                      ))}
+                    </div>
+                  );
+                })}
+            </div>
+          </div>
+        </section>
+        <section className={`px-6 sm:px-16 pt-4 pb-8 flex justify-center`}>
+          <div className="xl:max-w-[1280px] w-full h-full">
+            <div className="flex flex-col items-stretch justify-center">
+              <h1>{title}</h1>
+              <div
+                className="text-center project-description"
+                dangerouslySetInnerHTML={{ __html: description.html }}
               />
             </div>
-            <div
-              className={`absolute inset-0 bg-[${bgColor}] bg-opacity-50`}
-            ></div>
-            <div className="relative z-10">
-              <div className="container mx-auto px-4">
-                <div className="flex flex-col items-center justify-center h-screen">
-                  <h1 className="text-5xl font-boldtext-center">
-                    {title}
-                  </h1>
-                  <p className="text-center">{description}</p>
-                  <div className="flex flex-wrap justify-center items-center mt-10">
-                    {types.map((type) => (
-                      <div className="mx-2">
-                        <StaticImage
-                          src="../images/branding.png"
-                          alt="Branding"
-                          className="w-10 h-10"
-                        />
-                        <p className="text-center">{type}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="container mx-auto px-4">
-              <div className="flex flex-col items-center justify-center">
-                <h2 className="text-3xl font-bold text-center">The Process</h2>
-                <p className="text-center">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Quisquam voluptatum, quibusdam, quia, quae voluptates
-                  voluptate necessitatibus quod voluptatibus quos doloribus
-                  quidem exercitationem. Quisquam voluptatum, quibusdam, quia,
-                  quae voluptates voluptate necessitatibus quod voluptatibus
-                  quos doloribus quidem exercitationem.
-                </p>
-              </div>
+            <div className="mt-10">
+              {types.reverse().map((type, index) => (
+                <h6
+                  className="w-full mb-0 p-px font-medium"
+                  key={`type-${index}`}
+                >
+                  {type}
+                  {index === types.length - 1 ? (
+                    <span
+                      style={{
+                        borderLeft: "2px solid #fff",
+                        paddingLeft: "16px",
+                        marginLeft: "16px",
+                      }}
+                    >
+                      {brand}
+                    </span>
+                  ) : (
+                    ""
+                  )}
+                </h6>
+              ))}
             </div>
           </div>
         </section>

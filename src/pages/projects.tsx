@@ -92,11 +92,13 @@ const ProjectsPage = ({ data }: PageProps<Queries.ProjectsPageQuery>) => {
                 <div className="w-full h-[67%] flex flex-row gap-[15px]">
                   {filteredData
                     .slice((page - 1) * 5, page * 5 - 3)
-                    .map((node) => (
+                    .map((node: any) => (
                       <div
                         className="w-1/2 relative cursor-pointer"
                         onClick={() =>
-                          (window.location.href = `/project/${node?.title}`)
+                          (window.location.href = `/project/${encodeURI(
+                            node?.title_en?.toLowerCase().replace(/\s/g, "-")
+                          )}`)
                         }
                       >
                         <GatsbyImage
@@ -115,27 +117,31 @@ const ProjectsPage = ({ data }: PageProps<Queries.ProjectsPageQuery>) => {
                     ))}
                 </div>
                 <div className="w-full h-[33%] flex flex-row gap-[15px]">
-                  {filteredData.slice(page * 5 - 3, page * 5).map((node) => (
-                    <div
-                      className="w-1/3 relative cursor-pointer"
-                      onClick={() =>
-                        (window.location.href = `/project/${node?.title}`)
-                      }
-                    >
-                      <GatsbyImage
-                        image={node?.heroImage?.gatsbyImageData}
-                        alt={node?.title || ""}
-                        className={`w-full h-full object-cover`}
-                      />
+                  {filteredData
+                    .slice(page * 5 - 3, page * 5)
+                    .map((node: any) => (
                       <div
-                        className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
+                        className="w-1/3 relative cursor-pointer"
+                        onClick={() =>
+                          (window.location.href = `/project/${encodeURI(
+                            node?.title_en?.toLowerCase().replace(/\s/g, "-")
+                          )}`)
+                        }
                       >
-                        <p className="text-[22px] font-light font-libre">
-                          {node?.title}
-                        </p>
+                        <GatsbyImage
+                          image={node?.heroImage?.gatsbyImageData}
+                          alt={node?.title || ""}
+                          className={`w-full h-full object-cover`}
+                        />
+                        <div
+                          className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
+                        >
+                          <p className="text-[22px] font-light font-libre">
+                            {node?.title}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
                 </div>
               </div>
               <div className="w-full flex justify-center items-center mt-10">
@@ -191,6 +197,7 @@ export const query = graphql`
       nodes {
         id
         title
+        title_en
         heroImage {
           gatsbyImageData(placeholder: BLURRED, width: 1000)
         }
