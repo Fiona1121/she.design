@@ -14,20 +14,18 @@ const Footer: React.FC = () => {
   `);
 
   return (
-    <section className="px-6 sm:px-16 flex justify-center items-center py-6 mt-10">
+    <section className="px-6 sm:px-16 flex justify-center items-center py-6">
       <div className="xl:max-w-[1280px] w-full flex-col">
-        <div
-          className="w-full flex flex-center items-center flex-col pt-6 cursor-pointer"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        >
-          <StaticImage
-            src="../assets/arrowup.svg"
-            alt="arrowup"
-            width={22}
-            height={22}
-            placeholder="blurred"
-          />
-          <p className="font-libre text-[22px]">Top</p>
+        <div className="w-full flex flex-center justify-center items-center cursor-pointer">
+          <div className="flex flex-col justify-center items-center" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+            <StaticImage
+              src="../assets/arrowup.svg"
+              alt="arrowup"
+              height={22}
+              placeholder="blurred"
+            />
+            <p className="font-libre text-[22px] mt-2">Top</p>
+          </div>
         </div>
         <div className="w-full flex justify-end items-center flex-row">
           <div

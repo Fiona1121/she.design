@@ -26,11 +26,20 @@ const Project = ({ pageContext }: ProjectProps) => {
   const { title, brand, description, heroImage, types, bgColor, gallery } =
     pageContext;
 
+  React.useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
+
   return (
     <Layout bgColor={bgColor}>
       <Seo title={title} description={description.excerpt} />
-      <main className="min-h-screen">
-        <section className={`px-6 sm:px-16 pt-20 pb-8 flex justify-center`}>
+      <main className="min-h-screen flex flex-col">
+        <section
+          className={`px-6 sm:px-16 pt-20 pb-8 flex justify-center grow-0`}
+        >
           <div className="xl:max-w-[1280px] w-full h-full">
             <div className="flex flex-col gap-[15px]">
               <div className="flex flex-col items-stretch justify-center">
@@ -64,10 +73,10 @@ const Project = ({ pageContext }: ProjectProps) => {
             </div>
           </div>
         </section>
-        <section className={`px-6 sm:px-16 pt-4 pb-8 flex justify-center`}>
-          <div className="xl:max-w-[1280px] w-full h-full">
+        <section className={`px-6 py-4 sm:px-16 flex justify-center grow`}>
+          <div className="xl:max-w-[1280px] w-full flex flex-col justify-between">
             <div className="flex flex-col items-stretch justify-center">
-              <h1>{title}</h1>
+              {/* <h1>{title}</h1> */}
               <div
                 className="text-center project-description"
                 dangerouslySetInnerHTML={{ __html: description.html }}
@@ -80,21 +89,13 @@ const Project = ({ pageContext }: ProjectProps) => {
                   key={`type-${index}`}
                 >
                   {type}
-                  {index === types.length - 1 ? (
-                    <span
-                      style={{
-                        borderLeft: "2px solid #fff",
-                        paddingLeft: "16px",
-                        marginLeft: "16px",
-                      }}
-                    >
-                      {brand}
-                    </span>
-                  ) : (
-                    ""
-                  )}
                 </h6>
               ))}
+              <div
+                className="h-px bg-white mt-4 mb-4"
+                style={{ width: "2rem" }}
+              ></div>
+              <h6 className="font-medium">{brand}</h6>
             </div>
           </div>
         </section>

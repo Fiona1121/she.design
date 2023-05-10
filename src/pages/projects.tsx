@@ -21,6 +21,7 @@ const tabs = [
 
 const ProjectsPage = ({ data }: PageProps<Queries.ProjectsPageQuery>) => {
   const [active, setActive] = React.useState(tabs[0]);
+  const [tabMenuOpen, setTabMenuOpen] = React.useState(false);
   const [page, setPage] = React.useState(1);
 
   const filteredData =
@@ -67,10 +68,206 @@ const ProjectsPage = ({ data }: PageProps<Queries.ProjectsPageQuery>) => {
             <span></span>
           </div>
         </section>
-        <section className="px-6 sm:px-16 pt-20 pb-8 h-[100vh]">
+        <section className="px-6 sm:px-16 pt-20 pb-8 sm:h-[100vh]">
           <div className="xl:max-w-[1280px] w-full h-full">
             {/* mobile design */}
-            <div className="sm:hidden flex flex-col justify-center items-center"></div>
+            <div className="sm:hidden flex flex-col justify-center items-center">
+              <div className="w-full flex justify-start items-center my-5 font-libre font-normal text-[24px] ">
+                <div
+                  className="flex items-center cursor-pointer"
+                  onClick={() => setTabMenuOpen(true)}
+                >
+                  {active.title}
+                  <StaticImage
+                    src="../assets/arrowdown.svg"
+                    alt="arrow-down"
+                    width={12}
+                    height={12}
+                    className="ml-2"
+                  />
+                </div>
+                <div
+                  className={`h-screen w-screen bg-black bg-opacity-90 fixed top-0 left-0 z-10 ${
+                    tabMenuOpen ? "flex" : "hidden"
+                  }`}
+                >
+                  <div className="w-full h-full flex flex-col justify-center items-center gap-[10px]">
+                    {tabs.map((tab) => (
+                      <div
+                        key={tab.id}
+                        className={`my-3 mx-20 pb-px font-libre font-normal text-[24px] cursor-pointer ${
+                          active.id === tab.id
+                            ? "border-b-[1px] border-white"
+                            : "border-none"
+                        }`}
+                        onClick={() => {
+                          setActive(tab);
+                          setTabMenuOpen(false);
+                        }}
+                      >
+                        {tab.title}
+                      </div>
+                    ))}
+                  </div>
+                  <div
+                    className="fixed bottom-16 w-full flex justify-center items-center"
+                    onClick={() => setTabMenuOpen(false)}
+                  >
+                    <StaticImage
+                      src="../assets/close.svg"
+                      alt="close"
+                      width={20}
+                      height={20}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="w-full h-full flex flex-col justify-center items-center gap-[15px]">
+                {filteredData
+                  .slice((page - 1) * 5, page * 5)
+                  .map((node: any) => (
+                    <div
+                      className="w-full h-1/3 cursor-pointer"
+                      onClick={() =>
+                        (window.location.href = `/project/${encodeURI(
+                          node?.title_en?.toLowerCase().replace(/\s/g, "-")
+                        )}`)
+                      }
+                    >
+                      <GatsbyImage
+                        image={node?.heroImage?.gatsbyImageData}
+                        alt={node?.title || ""}
+                        className={`w-full h-1/3 object-cover`}
+                      />
+                      <div
+                        className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
+                      >
+                        <p className="text-[22px] font-libre">{node?.title}</p>
+                      </div>
+                    </div>
+                  ))}
+                  {filteredData
+                  .slice((page - 1) * 5, page * 5)
+                  .map((node: any) => (
+                    <div
+                      className="w-full h-1/3 cursor-pointer"
+                      onClick={() =>
+                        (window.location.href = `/project/${encodeURI(
+                          node?.title_en?.toLowerCase().replace(/\s/g, "-")
+                        )}`)
+                      }
+                    >
+                      <GatsbyImage
+                        image={node?.heroImage?.gatsbyImageData}
+                        alt={node?.title || ""}
+                        className={`w-full h-1/3 object-cover`}
+                      />
+                      <div
+                        className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
+                      >
+                        <p className="text-[22px] font-libre">{node?.title}</p>
+                      </div>
+                    </div>
+                  ))}
+                  {filteredData
+                  .slice((page - 1) * 5, page * 5)
+                  .map((node: any) => (
+                    <div
+                      className="w-full h-1/3 cursor-pointer"
+                      onClick={() =>
+                        (window.location.href = `/project/${encodeURI(
+                          node?.title_en?.toLowerCase().replace(/\s/g, "-")
+                        )}`)
+                      }
+                    >
+                      <GatsbyImage
+                        image={node?.heroImage?.gatsbyImageData}
+                        alt={node?.title || ""}
+                        className={`w-full h-1/3 object-cover`}
+                      />
+                      <div
+                        className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
+                      >
+                        <p className="text-[22px] font-libre">{node?.title}</p>
+                      </div>
+                    </div>
+                  ))}
+                  {filteredData
+                  .slice((page - 1) * 5, page * 5)
+                  .map((node: any) => (
+                    <div
+                      className="w-full h-1/3 cursor-pointer"
+                      onClick={() =>
+                        (window.location.href = `/project/${encodeURI(
+                          node?.title_en?.toLowerCase().replace(/\s/g, "-")
+                        )}`)
+                      }
+                    >
+                      <GatsbyImage
+                        image={node?.heroImage?.gatsbyImageData}
+                        alt={node?.title || ""}
+                        className={`w-full h-1/3 object-cover`}
+                      />
+                      <div
+                        className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
+                      >
+                        <p className="text-[22px] font-libre">{node?.title}</p>
+                      </div>
+                    </div>
+                  ))}
+                  {filteredData
+                  .slice((page - 1) * 5, page * 5)
+                  .map((node: any) => (
+                    <div
+                      className="w-full h-1/3 cursor-pointer"
+                      onClick={() =>
+                        (window.location.href = `/project/${encodeURI(
+                          node?.title_en?.toLowerCase().replace(/\s/g, "-")
+                        )}`)
+                      }
+                    >
+                      <GatsbyImage
+                        image={node?.heroImage?.gatsbyImageData}
+                        alt={node?.title || ""}
+                        className={`w-full h-1/3 object-cover`}
+                      />
+                      <div
+                        className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
+                      >
+                        <p className="text-[22px] font-libre">{node?.title}</p>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+              <div className="w-full flex justify-center items-center mt-10">
+                <div className="mx-2">
+                  <StaticImage
+                    src="../assets/arrowleft.svg"
+                    alt="previous page"
+                    width={22}
+                    height={22}
+                    placeholder="blurred"
+                    className={`${
+                      page > 1 ? "cursor-pointer opacity-100" : "opacity-50"
+                    }`}
+                    onClick={() => setPage(page - 1)}
+                  />
+                </div>
+                <div className="mx-2">
+                  <StaticImage
+                    src="../assets/arrowright.svg"
+                    alt="next page"
+                    width={22}
+                    height={22}
+                    placeholder="blurred"
+                    className={`${
+                      hasMore ? "cursor-pointer opacity-100" : "opacity-50"
+                    }`}
+                    onClick={() => setPage(page + 1)}
+                  />
+                </div>
+              </div>
+            </div>
             {/* destop design */}
             <div className="hidden sm:flex sm:flex-col justify-center items-center h-full">
               <div className="w-full flex justify-center items-center mb-4">
@@ -109,7 +306,7 @@ const ProjectsPage = ({ data }: PageProps<Queries.ProjectsPageQuery>) => {
                         <div
                           className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
                         >
-                          <p className="text-[22px] font-light font-libre">
+                          <p className="text-[22px] font-libre">
                             {node?.title}
                           </p>
                         </div>
@@ -136,7 +333,7 @@ const ProjectsPage = ({ data }: PageProps<Queries.ProjectsPageQuery>) => {
                         <div
                           className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
                         >
-                          <p className="text-[22px] font-light font-libre">
+                          <p className="text-[22px] font-libre">
                             {node?.title}
                           </p>
                         </div>
