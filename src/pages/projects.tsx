@@ -1,9 +1,34 @@
 import * as React from "react";
-import { HeadFC, PageProps, graphql } from "gatsby";
-import { Zoom } from "react-slideshow-image";
-import Layout from "../components/Layout";
+import { graphql } from "gatsby";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
+import { Zoom } from "react-slideshow-image";
+import Fade from "react-reveal/Fade";
+import Layout from "../components/Layout";
 import SEO from "../components/Seo";
+
+type IndexPageProps = {
+  data: {
+    contentfulLayoutProjects: {
+      title: string;
+      slides: {
+        title: string;
+        heroImage: {
+          gatsbyImageData: any;
+        };
+      }[];
+    };
+    allContentfulItemProject: {
+      nodes: {
+        title: string;
+        title_en: string;
+        heroImage: {
+          gatsbyImageData: any;
+        };
+        types: string[];
+      }[];
+    };
+  };
+};
 
 const tabs = [
   {
@@ -19,7 +44,7 @@ const tabs = [
   },
 ];
 
-const ProjectsPage = ({ data }: PageProps<Queries.ProjectsPageQuery>) => {
+const ProjectsPage = ({ data }: IndexPageProps) => {
   const [active, setActive] = React.useState(tabs[0]);
   const [tabMenuOpen, setTabMenuOpen] = React.useState(false);
   const [page, setPage] = React.useState(1);
@@ -68,7 +93,7 @@ const ProjectsPage = ({ data }: PageProps<Queries.ProjectsPageQuery>) => {
             <span></span>
           </div>
         </section>
-        <section className="px-6 sm:px-16 pt-20 pb-8 sm:h-[100vh]">
+        <section className="px-6 sm:px-16 pt-20 pb-8 min-h-screen sm:h-[100vh]">
           <div className="xl:max-w-[1280px] w-full h-full">
             {/* mobile design */}
             <div className="sm:hidden flex flex-col justify-center items-center">
@@ -126,117 +151,29 @@ const ProjectsPage = ({ data }: PageProps<Queries.ProjectsPageQuery>) => {
                 {filteredData
                   .slice((page - 1) * 5, page * 5)
                   .map((node: any) => (
-                    <div
-                      className="w-full h-1/3 cursor-pointer"
-                      onClick={() =>
-                        (window.location.href = `/project/${encodeURI(
-                          node?.title_en?.toLowerCase().replace(/\s/g, "-")
-                        )}`)
-                      }
-                    >
-                      <GatsbyImage
-                        image={node?.heroImage?.gatsbyImageData}
-                        alt={node?.title || ""}
-                        className={`w-full h-1/3 object-cover`}
-                      />
+                    <Fade bottom>
                       <div
-                        className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
+                        className="w-full h-1/3 relative cursor-pointer"
+                        onClick={() =>
+                          (window.location.href = `/project/${encodeURI(
+                            node?.title_en?.toLowerCase().replace(/\s/g, "-")
+                          )}`)
+                        }
                       >
-                        <p className="text-[22px] font-libre">{node?.title}</p>
+                        <GatsbyImage
+                          image={node?.heroImage?.gatsbyImageData}
+                          alt={node?.title || ""}
+                          className={`w-full h-1/3 object-cover`}
+                        />
+                        <div
+                          className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
+                        >
+                          <p className="text-[22px] font-libre">
+                            {node?.title}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                  {filteredData
-                  .slice((page - 1) * 5, page * 5)
-                  .map((node: any) => (
-                    <div
-                      className="w-full h-1/3 cursor-pointer"
-                      onClick={() =>
-                        (window.location.href = `/project/${encodeURI(
-                          node?.title_en?.toLowerCase().replace(/\s/g, "-")
-                        )}`)
-                      }
-                    >
-                      <GatsbyImage
-                        image={node?.heroImage?.gatsbyImageData}
-                        alt={node?.title || ""}
-                        className={`w-full h-1/3 object-cover`}
-                      />
-                      <div
-                        className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
-                      >
-                        <p className="text-[22px] font-libre">{node?.title}</p>
-                      </div>
-                    </div>
-                  ))}
-                  {filteredData
-                  .slice((page - 1) * 5, page * 5)
-                  .map((node: any) => (
-                    <div
-                      className="w-full h-1/3 cursor-pointer"
-                      onClick={() =>
-                        (window.location.href = `/project/${encodeURI(
-                          node?.title_en?.toLowerCase().replace(/\s/g, "-")
-                        )}`)
-                      }
-                    >
-                      <GatsbyImage
-                        image={node?.heroImage?.gatsbyImageData}
-                        alt={node?.title || ""}
-                        className={`w-full h-1/3 object-cover`}
-                      />
-                      <div
-                        className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
-                      >
-                        <p className="text-[22px] font-libre">{node?.title}</p>
-                      </div>
-                    </div>
-                  ))}
-                  {filteredData
-                  .slice((page - 1) * 5, page * 5)
-                  .map((node: any) => (
-                    <div
-                      className="w-full h-1/3 cursor-pointer"
-                      onClick={() =>
-                        (window.location.href = `/project/${encodeURI(
-                          node?.title_en?.toLowerCase().replace(/\s/g, "-")
-                        )}`)
-                      }
-                    >
-                      <GatsbyImage
-                        image={node?.heroImage?.gatsbyImageData}
-                        alt={node?.title || ""}
-                        className={`w-full h-1/3 object-cover`}
-                      />
-                      <div
-                        className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
-                      >
-                        <p className="text-[22px] font-libre">{node?.title}</p>
-                      </div>
-                    </div>
-                  ))}
-                  {filteredData
-                  .slice((page - 1) * 5, page * 5)
-                  .map((node: any) => (
-                    <div
-                      className="w-full h-1/3 cursor-pointer"
-                      onClick={() =>
-                        (window.location.href = `/project/${encodeURI(
-                          node?.title_en?.toLowerCase().replace(/\s/g, "-")
-                        )}`)
-                      }
-                    >
-                      <GatsbyImage
-                        image={node?.heroImage?.gatsbyImageData}
-                        alt={node?.title || ""}
-                        className={`w-full h-1/3 object-cover`}
-                      />
-                      <div
-                        className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
-                      >
-                        <p className="text-[22px] font-libre">{node?.title}</p>
-                      </div>
-                    </div>
+                    </Fade>
                   ))}
               </div>
               <div className="w-full flex justify-center items-center mt-10">

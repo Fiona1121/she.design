@@ -1,17 +1,75 @@
 import * as React from "react";
-import { HeadFC, PageProps, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import SEO from "../components/Seo";
 import { GatsbyImage } from "gatsby-plugin-image";
+import Fade from "react-reveal/Fade";
 
-const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => (
+type IndexPageProps = {
+  data: {
+    contentfulLayoutHome: {
+      title: string;
+      primaryProject: {
+        id: string;
+        title: string;
+        title_en: string;
+        heroImage: {
+          gatsbyImageData: any;
+        };
+      };
+    };
+    allContentfulItemProject: {
+      nodes: {
+        id: string;
+        title: string;
+        title_en: string;
+        heroImage: {
+          gatsbyImageData: any;
+        };
+      }[];
+    };
+  };
+};
+
+const IndexPage = ({ data }: IndexPageProps) => (
   <Layout>
     <SEO />
     <main>
       <section className="px-6 sm:px-16 pt-20 pb-8 min-h-screen flex justify-center">
         <div className="xl:max-w-[1280px] w-full h-full">
           <div className="flex flex-col gap-[15px]">
-            {data?.contentfulLayoutHome?.gallery &&
+            <div
+              className={`grid gap-[15px] relative sm:grid-cols-1 cursor-pointer`}
+              onClick={() =>
+                (window.location.href = `/project/${encodeURI(
+                  data?.contentfulLayoutHome?.primaryProject?.title_en
+                    ?.toLowerCase()
+                    .replace(/\s/g, "-")
+                )}`)
+              }
+            >
+              <Fade bottom>
+                <GatsbyImage
+                  image={
+                    data?.contentfulLayoutHome?.primaryProject?.heroImage
+                      ?.gatsbyImageData
+                  }
+                  alt={
+                    data?.contentfulLayoutHome?.primaryProject?.title ||
+                    "primary-project"
+                  }
+                  className="object-cover"
+                />
+              </Fade>
+              <div
+                className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
+              >
+                <p className="text-[22px] font-libre">
+                  {data?.contentfulLayoutHome?.primaryProject?.title}
+                </p>
+              </div>
+            </div>
+            {/* {data?.contentfulLayoutHome?.gallery &&
               data?.contentfulLayoutHome?.gallery?.map((row: any) => {
                 const colTemplate = row.widthRatio
                   .split(" ")
@@ -33,7 +91,7 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => (
                     ))}
                   </div>
                 );
-              })}
+              })} */}
           </div>
         </div>
       </section>
@@ -47,13 +105,23 @@ export const query = graphql`
   query IndexPage {
     contentfulLayoutHome {
       title
-      gallery {
-        images {
-          title
-          gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+      primaryProject {
+        id
+        title
+        title_en
+        heroImage {
+          gatsbyImageData(width: 1280, placeholder: BLURRED)
         }
-        widthRatio
-        height
+      }
+    }
+    allContentfulItemProject {
+      nodes {
+        id
+        title
+        title_en
+        heroImage {
+          gatsbyImageData(width: 1280, placeholder: BLURRED)
+        }
       }
     }
   }

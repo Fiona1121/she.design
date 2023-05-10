@@ -1,7 +1,8 @@
 import * as React from "react";
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
+import Fade from "react-reveal/Fade";
 
 interface ProjectProps {
   pageContext: {
@@ -43,7 +44,9 @@ const Project = ({ pageContext }: ProjectProps) => {
           <div className="xl:max-w-[1280px] w-full h-full">
             <div className="flex flex-col gap-[15px]">
               <div className="flex flex-col items-stretch justify-center">
-                <GatsbyImage image={heroImage} alt={title} />
+                <Fade bottom>
+                  <GatsbyImage image={heroImage} alt={title} />
+                </Fade>
               </div>
               {gallery &&
                 gallery?.map((row: any) => {
@@ -57,16 +60,18 @@ const Project = ({ pageContext }: ProjectProps) => {
                           .join(" "),
                       }}
                     >
-                      {row.images.map((image: any) => (
-                        <GatsbyImage
-                          image={image.gatsbyImageData}
-                          alt={title}
-                          className="object-cover"
-                          style={{
-                            height: `${row.height}vh`,
-                          }}
-                        />
-                      ))}
+                      <Fade bottom>
+                        {row.images.map((image: any) => (
+                          <GatsbyImage
+                            image={image.gatsbyImageData}
+                            alt={title}
+                            className="object-cover"
+                            style={{
+                              height: `${row.height}vh`,
+                            }}
+                          />
+                        ))}
+                      </Fade>
                     </div>
                   );
                 })}
