@@ -34,42 +34,40 @@ const Header: React.FC = () => {
             ))}
           </ul>
           <div className="sm:hidden flex flex-1 justify-end items-center">
-            {toggle ? (
-              <span onClick={() => setToggle(!toggle)}>
-                <StaticImage
-                  src="../assets/close.svg"
-                  alt="menu"
-                  className="w-[20px] h-[20px] object-contain"
-                />
-              </span>
-            ) : (
-              <span onClick={() => setToggle(!toggle)}>
-                <StaticImage
-                  src="../assets/menu.svg"
-                  alt="menu"
-                  className="w-[20px] h-[20px] object-contain"
-                />
-              </span>
-            )}
-
+            <span onClick={() => setToggle(!toggle)}>
+              <StaticImage
+                src="../assets/menu.svg"
+                alt="menu"
+                className="w-[20px] h-[20px] object-contain"
+              />
+            </span>
             <div
               className={`${
                 !toggle ? "hidden" : "flex"
-              } p-6 bg-black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar`}
+              } h-screen w-screen bg-black bg-opacity-90 fixed top-0 left-0 z-10`}
             >
-              <ul className="list-none flex justify-end items-start flex-1 flex-col">
+              <ul className="list-none w-full h-full flex flex-col justify-center items-center">
                 {navLinks.map((nav, index) => (
                   <li
                     key={nav.id}
-                    className={`font-libre font-medium cursor-pointer text-[16px] ${
-                      active === nav.title ? "text-white" : "text-white"
-                    } ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}`}
+                    className={`my-3 font-libre font-medium cursor-pointer text-[24px]`}
                     onClick={() => setActive(nav.title)}
                   >
                     <a href={`/${nav.id}`}>{nav.title}</a>
                   </li>
                 ))}
               </ul>
+              <div
+                className="fixed bottom-16 w-full flex justify-center items-center"
+                onClick={() => setToggle(false)}
+              >
+                <StaticImage
+                  src="../assets/close.svg"
+                  alt="close"
+                  width={20}
+                  height={20}
+                />
+              </div>
             </div>
           </div>
         </nav>
