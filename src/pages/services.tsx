@@ -19,7 +19,7 @@ const ServicesPage = ({ data }: PageProps<Queries.ServicesPageQuery>) => {
       />
       <main>
         <section className="mx-6 sm:mx-24 flex justify-center">
-          <div className="xl:max-w-[1280px] w-full h-full pt-20 sm:pt-28 pb-8 px-4 sm:px-6">
+          <div className="xl:max-w-[1280px] w-full h-full pt-20 sm:pt-28 sm:pb-8 px-4 sm:px-6">
             <Fade bottom>
               <h4 className="font-montserrat font-medium leading-relaxed">
                 專業諮詢規劃 用心執行完成
