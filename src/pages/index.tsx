@@ -31,73 +31,167 @@ type IndexPageProps = {
   };
 };
 
-const IndexPage = ({ data }: IndexPageProps) => (
-  <Layout>
-    <SEO />
-    <main>
-      <section className="px-6 sm:px-16 pt-20 pb-8 min-h-screen flex justify-center">
-        <div className="xl:max-w-[1280px] w-full h-full">
-          <div className="flex flex-col gap-[15px]">
-            <div
-              className={`grid gap-[15px] relative sm:grid-cols-1 cursor-pointer`}
-              onClick={() =>
-                (window.location.href = `/project/${encodeURI(
-                  data?.contentfulLayoutHome?.primaryProject?.title_en
-                    ?.toLowerCase()
-                    .replace(/\s/g, "-")
-                )}`)
-              }
-            >
-              <Fade bottom>
-                <GatsbyImage
-                  image={
-                    data?.contentfulLayoutHome?.primaryProject?.heroImage
-                      ?.gatsbyImageData
-                  }
-                  alt={
-                    data?.contentfulLayoutHome?.primaryProject?.title ||
-                    "primary-project"
-                  }
-                  className="object-cover"
-                />
-              </Fade>
+const gridSpanConfig = [4, 4, 4, 6, 6, 12];
+const gridHeightConfig = [30, 30, 30, 40, 40, 70];
+
+const IndexPage = ({ data }: IndexPageProps) => {
+  React.useEffect(() => {
+    window.scroll({ top: 0, behavior: "smooth" });
+  }, []);
+
+  return (
+    <Layout>
+      <SEO />
+      <main>
+        <section className="px-6 sm:px-16 pt-20 pb-8 min-h-screen flex justify-center">
+          <div className="xl:max-w-[1280px] w-full h-full">
+            {/* Mobile Design */}
+            <div className="flex flex-col gap-[15px] sm:hidden">
               <div
-                className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
+                className={`relative cursor-pointer`}
+                onClick={() =>
+                  (window.location.href = `/project/${encodeURI(
+                    data?.contentfulLayoutHome?.primaryProject?.title_en
+                      ?.toLowerCase()
+                      .replace(/\s/g, "-")
+                  )}`)
+                }
               >
-                <p className="text-[22px] font-libre">
-                  {data?.contentfulLayoutHome?.primaryProject?.title}
-                </p>
+                <Fade bottom>
+                  <GatsbyImage
+                    image={
+                      data?.contentfulLayoutHome?.primaryProject?.heroImage
+                        ?.gatsbyImageData
+                    }
+                    alt={
+                      data?.contentfulLayoutHome?.primaryProject?.title ||
+                      "primary-project"
+                    }
+                    className="w-full object-cover h-[30vh]"
+                  />
+                </Fade>
+                <div
+                  className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
+                >
+                  <p className="text-[22px] font-libre">
+                    {data?.contentfulLayoutHome?.primaryProject?.title}
+                  </p>
+                </div>
+              </div>
+              {data.allContentfulItemProject.nodes
+                .filter(
+                  (item) =>
+                    item.id !== data?.contentfulLayoutHome?.primaryProject?.id
+                )
+                .map((item, index) => {
+                  return (
+                    <div
+                      key={item.id}
+                      className={`relative cursor-pointer`}
+                      onClick={() =>
+                        (window.location.href = `/project/${encodeURI(
+                          item.title_en?.toLowerCase().replace(/\s/g, "-")
+                        )}`)
+                      }
+                      style={{
+                        gridColumn: `span ${gridSpanConfig[index % 6]}`,
+                      }}
+                    >
+                      <Fade bottom>
+                        <GatsbyImage
+                          image={item.heroImage?.gatsbyImageData}
+                          alt={item.title || "primary-project"}
+                          className="w-full object-cover h-[30vh]"
+                        />
+                      </Fade>
+                      <div
+                        className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
+                      >
+                        <p className="text-[22px] font-libre">{item.title}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+            {/* Desktop Design */}
+            <div className="flex-col gap-[15px] hidden sm:flex">
+              <div
+                className={`grid gap-[15px] relative sm:grid-cols-1 cursor-pointer`}
+                onClick={() =>
+                  (window.location.href = `/project/${encodeURI(
+                    data?.contentfulLayoutHome?.primaryProject?.title_en
+                      ?.toLowerCase()
+                      .replace(/\s/g, "-")
+                  )}`)
+                }
+              >
+                <Fade bottom>
+                  <GatsbyImage
+                    image={
+                      data?.contentfulLayoutHome?.primaryProject?.heroImage
+                        ?.gatsbyImageData
+                    }
+                    alt={
+                      data?.contentfulLayoutHome?.primaryProject?.title ||
+                      "primary-project"
+                    }
+                    className="w-full object-cover h-[70vh]"
+                  />
+                </Fade>
+                <div
+                  className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
+                >
+                  <p className="text-[22px] font-libre">
+                    {data?.contentfulLayoutHome?.primaryProject?.title}
+                  </p>
+                </div>
+              </div>
+              <div className="grid gap-[15px] grid-cols-12">
+                {data.allContentfulItemProject.nodes
+                  .filter(
+                    (item) =>
+                      item.id !== data?.contentfulLayoutHome?.primaryProject?.id
+                  )
+                  .map((item, index) => {
+                    return (
+                      <div
+                        key={item.id}
+                        className={`relative cursor-pointer`}
+                        onClick={() =>
+                          (window.location.href = `/project/${encodeURI(
+                            item.title_en?.toLowerCase().replace(/\s/g, "-")
+                          )}`)
+                        }
+                        style={{
+                          gridColumn: `span ${gridSpanConfig[index % 6]}`,
+                        }}
+                      >
+                        <Fade bottom>
+                          <GatsbyImage
+                            image={item.heroImage?.gatsbyImageData}
+                            alt={item.title || "primary-project"}
+                            className="w-full object-cover"
+                            style={{
+                              height: `${gridHeightConfig[index % 6]}vh`,
+                            }}
+                          />
+                        </Fade>
+                        <div
+                          className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
+                        >
+                          <p className="text-[22px] font-libre">{item.title}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
               </div>
             </div>
-            {/* {data?.contentfulLayoutHome?.gallery &&
-              data?.contentfulLayoutHome?.gallery?.map((row: any) => {
-                const colTemplate = row.widthRatio
-                  .split(" ")
-                  .map((col: string) => `${col}fr`)
-                  .join("_");
-                return (
-                  <div
-                    className={`grid gap-[15px] sm:grid-cols-[${colTemplate}]`}
-                  >
-                    {row.images.map((image: any) => (
-                      <GatsbyImage
-                        image={image.gatsbyImageData}
-                        alt={image.title}
-                        className="object-cover"
-                        style={{
-                          height: `${row.height}vh`,
-                        }}
-                      />
-                    ))}
-                  </div>
-                );
-              })} */}
           </div>
-        </div>
-      </section>
-    </main>
-  </Layout>
-);
+        </section>
+      </main>
+    </Layout>
+  );
+};
 
 export default IndexPage;
 

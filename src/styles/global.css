@@ -35,7 +35,8 @@
   @apply text-white;
   @apply tracking-wide;
 }
-html, body {
+html,
+body {
   @apply bg-primary;
 }
 
@@ -119,6 +120,22 @@ html, body {
   opacity: 1;
   transform: none;
   visibility: visible;
+}
+
+.home-gallery {
+  @apply h-full grid grid-cols-1;
+}
+
+.home-gallery > div:nth-child(3n + 1) {
+  @apply h-[30vh] sm:grid-cols-3;
+}
+
+.home-gallery > div:nth-child(3n + 2) {
+  @apply h-[50vh] sm:col-span-2;
+}
+
+.home-gallery > div:nth-child(3n + 3) {
+  @apply h-[70vh] sm:col-span-1;
 }
 
 .menu-item {

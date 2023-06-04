@@ -28,10 +28,7 @@ const Project = ({ pageContext }: ProjectProps) => {
     pageContext;
 
   React.useEffect(() => {
-    window.scroll({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scroll({ top: 0, behavior: "smooth" });
   }, []);
 
   return (
@@ -42,10 +39,41 @@ const Project = ({ pageContext }: ProjectProps) => {
           className={`px-6 sm:px-16 pt-20 pb-8 flex justify-center grow-0`}
         >
           <div className="xl:max-w-[1280px] w-full h-full">
-            <div className="flex flex-col gap-[15px]">
+            <div className="flex flex-col gap-[15px] sm:hidden">
               <div className="flex flex-col items-stretch justify-center">
                 <Fade bottom>
-                  <GatsbyImage image={heroImage} alt={title} />
+                  <GatsbyImage
+                    image={heroImage}
+                    alt={title}
+                    className="w-full"
+                  />
+                </Fade>
+              </div>
+              {gallery &&
+                gallery?.map((row: any) => {
+                  return (
+                    <div className="grid grid-col-1 gap-[15px]">
+                      <Fade bottom>
+                        {row.images.map((image: any) => (
+                          <GatsbyImage
+                            image={image.gatsbyImageData}
+                            alt={title}
+                            className="object-cover"
+                          />
+                        ))}
+                      </Fade>
+                    </div>
+                  );
+                })}
+            </div>
+            <div className="hidden sm:flex flex-col gap-[15px]">
+              <div className="flex flex-col items-stretch justify-center">
+                <Fade bottom>
+                  <GatsbyImage
+                    image={heroImage}
+                    alt={title}
+                    className="w-full"
+                  />
                 </Fade>
               </div>
               {gallery &&
@@ -81,7 +109,6 @@ const Project = ({ pageContext }: ProjectProps) => {
         <section className={`px-6 py-4 sm:px-16 flex justify-center grow`}>
           <div className="xl:max-w-[1280px] w-full flex flex-col justify-between">
             <div className="flex flex-col items-stretch justify-center">
-              {/* <h1>{title}</h1> */}
               <div
                 className="text-center project-description"
                 dangerouslySetInnerHTML={{ __html: description.html }}
@@ -97,7 +124,7 @@ const Project = ({ pageContext }: ProjectProps) => {
                 </h6>
               ))}
               <div
-                className="h-px bg-white mt-4 mb-4"
+                className="h-px bg-white mt-2 mb-4"
                 style={{ width: "2rem" }}
               ></div>
               <h6 className="font-medium">{brand}</h6>
