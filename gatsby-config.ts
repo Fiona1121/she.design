@@ -1,5 +1,9 @@
 import { GatsbyConfig } from "gatsby";
 
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `She.Design 序設計`,
@@ -13,8 +17,8 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-source-contentful",
       options: {
-        accessToken: "NPdyiJrqnFhj9XLySv5LtIDoUtPn9Z4kDlPXG_oQo1M",
-        spaceId: "n6qwo9tyhin6",
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
       },
     },
     {

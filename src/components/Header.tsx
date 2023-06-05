@@ -7,8 +7,8 @@ const Header: React.FC = () => {
   const [toggle, setToggle] = React.useState(false);
 
   return (
-    <div className="px-6 sm:px-16 flex justify-center items-center fixed top-0 left-0 w-full bg-black/20 z-50">
-      <div className="xl:max-w-[1280px] w-full">
+    <div className="px-6 sm:px-10 flex justify-center items-center fixed top-0 left-0 w-full bg-black/20 z-50">
+      <div className="xl:max-w-[1400px] w-full">
         <nav className="w-full flex py-4 justify-between items-center navbar">
           <div
             className="logo-placeholder cursor-pointer"

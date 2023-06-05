@@ -36,9 +36,9 @@ const Project = ({ pageContext }: ProjectProps) => {
       <Seo title={title} description={description.excerpt} />
       <main className="min-h-screen flex flex-col">
         <section
-          className={`px-6 sm:px-16 pt-20 pb-8 flex justify-center grow-0`}
+          className={`px-6 sm:px-10 pt-20 pb-8 flex justify-center grow-0`}
         >
-          <div className="xl:max-w-[1280px] w-full h-full">
+          <div className="xl:max-w-[1400px] w-full h-full">
             <div className="flex flex-col gap-[15px] sm:hidden">
               <div className="flex flex-col items-stretch justify-center">
                 <Fade bottom>
@@ -106,28 +106,28 @@ const Project = ({ pageContext }: ProjectProps) => {
             </div>
           </div>
         </section>
-        <section className={`px-6 py-4 sm:px-16 flex justify-center grow`}>
-          <div className="xl:max-w-[1280px] w-full flex flex-col justify-between">
+        <section className={`px-6 py-4 sm:px-10 flex justify-center grow`}>
+          <div className="xl:max-w-[1400px] w-full flex flex-col justify-between">
             <div className="flex flex-col items-stretch justify-center">
               <div
                 className="text-center project-description"
                 dangerouslySetInnerHTML={{ __html: description.html }}
               />
             </div>
-            <div className="mt-10">
-              {types.reverse().map((type, index) => (
-                <h6
-                  className="w-full mb-0 p-px font-medium"
-                  key={`type-${index}`}
-                >
-                  {type}
-                </h6>
-              ))}
-              <div
-                className="h-px bg-white mt-2 mb-4"
-                style={{ width: "2rem" }}
-              ></div>
-              <h6 className="font-medium">{brand}</h6>
+            <div className="mt-10 flex gap-2">
+              <div>
+                {types.reverse().map((type, index) => (
+                  <h6
+                    className="w-full mb-0 p-px font-medium"
+                    key={`type-${index}`}
+                  >
+                    {type}
+                  </h6>
+                ))}
+              </div>
+              <div className="flex flex-col justify-end">
+                <div className="font-medium text-lg">| {brand}</div>
+              </div>
             </div>
           </div>
         </section>

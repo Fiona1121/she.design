@@ -19,11 +19,12 @@ const ServicesPage = ({ data }: PageProps<Queries.ServicesPageQuery>) => {
       />
       <main>
         <section className="mx-6 sm:mx-24 flex justify-center">
-          <div className="xl:max-w-[1280px] w-full h-full pt-20 sm:pt-28 sm:pb-8 px-4 sm:px-6">
+          <div className="xl:max-w-[1400px] w-full h-full pt-20 sm:pt-28 sm:pb-8 px-4 sm:px-6">
             <Fade bottom>
-              <h4 className="font-montserrat font-medium leading-relaxed">
+              <h4 className="font-montserrat font-medium leading-normal">
                 專業諮詢規劃 用心執行完成
-                <br />
+              </h4>
+              <h4 className="font-montserrat font-medium leading-normal">
                 Open process consultation and support,
                 <br />
                 from a professional company.
@@ -32,7 +33,7 @@ const ServicesPage = ({ data }: PageProps<Queries.ServicesPageQuery>) => {
           </div>
         </section>
         <section className="mx-6 sm:mx-24 flex justify-center">
-          <div className="xl:max-w-[1280px] w-full h-full flex flex-col sm:flex sm:flex-row pt-8 pb-16 px-4 sm:px-6 border-b-[1px] sm:gap-6">
+          <div className="xl:max-w-[1400px] w-full h-full flex flex-col sm:flex sm:flex-row pt-8 pb-16 px-4 sm:px-6 border-b-[1px] sm:gap-6">
             <div className="w-full sm:w-1/5">
               <Fade bottom>
                 <h4 className="font-montserrat font-medium sm:w-[min-content] whitespace-break-spaces">
@@ -57,15 +58,15 @@ const ServicesPage = ({ data }: PageProps<Queries.ServicesPageQuery>) => {
           </div>
         </section>
         <section className="mx-6 sm:mx-24 flex justify-center">
-          <ol className="xl:max-w-[1280px] w-full h-full flex flex-col gap-16 px-4 sm:px-6 pt-16 pb-16 border-b-[1px]">
+          <ol className="xl:max-w-[1400px] w-full h-full flex flex-col gap-16 px-4 sm:px-6 pt-16 pb-16 border-b-[1px]">
             {contentfulLayoutServices?.processes?.map(
               (process: any, index: number) => (
                 <Fade bottom>
                   <li
-                    className="w-full flex flex-col md:flex md:flex-row gap-10"
+                    className="w-full flex flex-col md:flex md:flex-row gap-6 md:gap-10"
                     key={`process-${index}`}
                   >
-                    <div className="w-full md:w-1/5 flex flex-row md:flex-col items-center md:items-start">
+                    <div className="w-full md:w-1/5 flex flex-row md:flex-col items-center md:items-start mb-4">
                       <h5 className="font-montserrat font-semibold text-5xl mr-4 mb-0">
                         {(index + 1).toLocaleString("zh-Hant-TW", {
                           minimumIntegerDigits: 2,
@@ -99,14 +100,14 @@ const ServicesPage = ({ data }: PageProps<Queries.ServicesPageQuery>) => {
           </ol>
         </section>
         <section className="mx-6 sm:mx-24 flex justify-center">
-          <div className="xl:max-w-[1280px] w-full h-full px-4 sm:px-6 pt-16 pb-16">
+          <div className="xl:max-w-[1400px] w-full h-full px-4 sm:px-6 pt-16 pb-16">
             <Fade bottom>
               <div className="flex items-center mb-6">
                 <h4>聯絡我們</h4>
                 <div className="h-px bg-white ml-4 w-[100px] mb-4"></div>
               </div>
             </Fade>
-            <div className="xl:max-w-[1280px] w-full h-full grid sm:grid-cols-2">
+            <div className="xl:max-w-[1400px] w-full h-full grid sm:grid-cols-2">
               {contentfulLayoutServices?.contacts?.map(
                 (contact: any, index: number) => (
                   <Fade bottom>
@@ -116,7 +117,7 @@ const ServicesPage = ({ data }: PageProps<Queries.ServicesPageQuery>) => {
                     >
                       <h5 className="font-montserrat font-medium">
                         {contact.name}
-                        <span className="font-thin text-xl opacity-70 ml-4">
+                        <span className="font-light text-xl opacity-70 ml-4">
                           {contact.title}
                         </span>
                       </h5>

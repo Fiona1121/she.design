@@ -93,8 +93,8 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
             <span></span>
           </div>
         </section>
-        <section className="px-6 sm:px-16 pt-20 pb-8 min-h-screen sm:h-[100vh]">
-          <div className="xl:max-w-[1280px] w-full h-full">
+        <section className="px-6 sm:px-10 pt-20 pb-8 min-h-screen sm:h-[100vh]">
+          <div className="xl:max-w-[1400px] w-full h-full">
             {/* mobile design */}
             <div className="sm:hidden flex flex-col justify-center items-center">
               <div className="w-full flex justify-start items-center my-5 font-libre font-normal text-[24px] ">
