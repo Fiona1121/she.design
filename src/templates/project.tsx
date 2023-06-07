@@ -126,7 +126,15 @@ const Project = ({ pageContext }: ProjectProps) => {
                 ))}
               </div>
               <div className="flex flex-col justify-end">
-                <div className="font-medium text-lg">| {brand}</div>
+                <div
+                  className="font-medium text-lg"
+                  style={{
+                    borderLeft: `1px solid white`,
+                    paddingLeft: `10px`,
+                  }}
+                >
+                  {brand}
+                </div>
               </div>
             </div>
           </div>
