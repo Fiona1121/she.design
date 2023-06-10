@@ -7,10 +7,6 @@ import Fade from "react-reveal/Fade";
 const ServicesPage = ({ data }: PageProps<Queries.ServicesPageQuery>) => {
   const { contentfulLayoutServices } = data;
 
-  React.useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
-
   return (
     <Layout>
       <SEO

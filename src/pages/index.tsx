@@ -35,9 +35,6 @@ const gridSpanConfig = [4, 4, 4, 6, 6, 12];
 const gridHeightConfig = [30, 30, 30, 40, 40, 70];
 
 const IndexPage = ({ data }: IndexPageProps) => {
-  React.useEffect(() => {
-    window.scroll({ top: 0, behavior: "smooth" });
-  }, []);
 
   return (
     <Layout>

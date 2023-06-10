@@ -27,10 +27,6 @@ const Project = ({ pageContext }: ProjectProps) => {
   const { title, brand, description, heroImage, types, bgColor, gallery } =
     pageContext;
 
-  React.useEffect(() => {
-    window.scroll({ top: 0, behavior: "smooth" });
-  }, []);
-
   return (
     <Layout bgColor={bgColor}>
       <Seo title={title} description={description.excerpt} />
@@ -54,13 +50,15 @@ const Project = ({ pageContext }: ProjectProps) => {
                   return (
                     <div className="grid grid-col-1 gap-[15px]">
                       <Fade bottom>
-                        {row.images.map((image: any) => (
-                          <GatsbyImage
-                            image={image.gatsbyImageData}
-                            alt={title}
-                            className="object-cover"
-                          />
-                        ))}
+                        <>
+                          {row.images.map((image: any) => (
+                            <GatsbyImage
+                              image={image.gatsbyImageData}
+                              alt={title}
+                              className="object-cover w-full"
+                            />
+                          ))}
+                        </>
                       </Fade>
                     </div>
                   );
@@ -89,16 +87,18 @@ const Project = ({ pageContext }: ProjectProps) => {
                       }}
                     >
                       <Fade bottom>
-                        {row.images.map((image: any) => (
-                          <GatsbyImage
-                            image={image.gatsbyImageData}
-                            alt={title}
-                            className="object-cover"
-                            style={{
-                              height: `${row.height}vh`,
-                            }}
-                          />
-                        ))}
+                        <>
+                          {row.images.map((image: any) => (
+                            <GatsbyImage
+                              image={image.gatsbyImageData}
+                              alt={title}
+                              className="object-cover w-full"
+                              style={{
+                                height: `${row.height}vh`,
+                              }}
+                            />
+                          ))}
+                        </>
                       </Fade>
                     </div>
                   );
@@ -109,6 +109,7 @@ const Project = ({ pageContext }: ProjectProps) => {
         <section className={`px-6 py-4 sm:px-10 flex justify-center grow`}>
           <div className="xl:max-w-[1400px] w-full flex flex-col justify-between">
             <div className="flex flex-col items-stretch justify-center">
+              <h1 className="text-4xl sm:text-5xl font-bold">{title}</h1>
               <div
                 className="text-center project-description"
                 dangerouslySetInnerHTML={{ __html: description.html }}

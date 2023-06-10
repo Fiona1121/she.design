@@ -25,13 +25,13 @@ export const createPages: GatsbyNode["createPages"] = async ({
             }
           }
           heroImage {
-            gatsbyImageData(width: 1000, placeholder: BLURRED)
+            gatsbyImageData(width: 2000, placeholder: BLURRED)
           }
           types
           bgColor
           gallery {
             images {
-              gatsbyImageData(placeholder: BLURRED, width: 1000)
+              gatsbyImageData(placeholder: BLURRED, width: 2000)
             }
             widthRatio
             height
