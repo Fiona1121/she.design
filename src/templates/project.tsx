@@ -32,7 +32,7 @@ const Project = ({ pageContext }: ProjectProps) => {
       <Seo title={title} description={description.excerpt} />
       <main className="min-h-screen flex flex-col">
         <section
-          className={`px-6 sm:px-10 pt-20 pb-8 flex justify-center grow-0`}
+          className={`px-6 sm:px-10 pt-14 sm:pt-16 pb-8 flex justify-center grow-0`}
         >
           <div className="xl:max-w-[1400px] w-full h-full">
             <div className="flex flex-col gap-[15px] sm:hidden">
@@ -109,9 +109,10 @@ const Project = ({ pageContext }: ProjectProps) => {
         <section className={`px-6 py-4 sm:px-10 flex justify-center grow`}>
           <div className="xl:max-w-[1400px] w-full flex flex-col justify-between">
             <div className="flex flex-col items-stretch justify-center">
-              <h1 className="text-4xl sm:text-5xl font-bold">{title}</h1>
+              <h1 className="project-title">{title}</h1>
               <div
                 className="text-center project-description"
+                style={{ whiteSpace: "pre-wrap" }}
                 dangerouslySetInnerHTML={{ __html: description.html }}
               />
             </div>

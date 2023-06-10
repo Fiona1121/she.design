@@ -9,7 +9,7 @@ const Header: React.FC = () => {
   return (
     <div className="px-6 sm:px-10 flex justify-center items-center fixed top-0 left-0 w-full bg-black/20 z-50">
       <div className="xl:max-w-[1400px] w-full">
-        <nav className="w-full flex py-4 justify-between items-center navbar">
+        <nav className="w-full flex py-[0.75rem] justify-between items-center navbar">
           <div
             className="logo-placeholder cursor-pointer"
             onClick={() => (window.location.href = "/")}
@@ -18,7 +18,7 @@ const Header: React.FC = () => {
               src="../assets/logo.svg"
               alt="She.Design Logo"
               placeholder="blurred"
-              height={32}
+              height={28}
             />
           </div>
           <ul className="list-none sm:flex hidden justify-end items-center flex-1">
@@ -38,7 +38,7 @@ const Header: React.FC = () => {
               <StaticImage
                 src="../assets/menu.svg"
                 alt="menu"
-                className="w-[20px] h-[20px] object-contain"
+                className="w-[18px] h-[18px] object-contain"
               />
             </span>
             <div
@@ -64,8 +64,8 @@ const Header: React.FC = () => {
                 <StaticImage
                   src="../assets/close.svg"
                   alt="close"
-                  width={20}
-                  height={20}
+                  width={18}
+                  height={18}
                 />
               </div>
             </div>

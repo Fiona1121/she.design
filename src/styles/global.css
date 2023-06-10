@@ -40,6 +40,10 @@ body {
   @apply bg-primary;
 }
 
+.project-title {
+  @apply text-3xl sm:text-4xl font-bold mb-4;
+}
+
 .project-description .h1 {
   @apply text-4xl font-bold mb-8;
 }
