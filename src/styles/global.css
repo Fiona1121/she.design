@@ -40,8 +40,16 @@ body {
   @apply bg-primary;
 }
 
+.mobile-design {
+  @apply md:hidden;
+}
+
 .project-title {
   @apply text-3xl sm:text-4xl font-bold mb-4;
+}
+
+.project-type {
+  @apply text-[1.05rem] sm:text-lg font-medium;
 }
 
 .project-description .h1 {

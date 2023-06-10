@@ -35,7 +35,7 @@ const Project = ({ pageContext }: ProjectProps) => {
           className={`px-6 sm:px-10 pt-14 sm:pt-16 pb-8 flex justify-center grow-0`}
         >
           <div className="xl:max-w-[1400px] w-full h-full">
-            <div className="flex flex-col gap-[15px] sm:hidden">
+            <div className="flex flex-col gap-[15px] mobile-design">
               <div className="flex flex-col items-stretch justify-center">
                 <Fade bottom>
                   <GatsbyImage
@@ -64,7 +64,7 @@ const Project = ({ pageContext }: ProjectProps) => {
                   );
                 })}
             </div>
-            <div className="hidden sm:flex flex-col gap-[15px]">
+            <div className="hidden md:flex flex-col gap-[15px]">
               <div className="flex flex-col items-stretch justify-center">
                 <Fade bottom>
                   <GatsbyImage
@@ -120,7 +120,8 @@ const Project = ({ pageContext }: ProjectProps) => {
               <div>
                 {types.reverse().map((type, index) => (
                   <h6
-                    className="w-full mb-0 p-px font-medium"
+                    className="w-full mb-0 p-px project-type"
+                    style={{}}
                     key={`type-${index}`}
                   >
                     {type}
@@ -129,10 +130,13 @@ const Project = ({ pageContext }: ProjectProps) => {
               </div>
               <div className="flex flex-col justify-end">
                 <div
-                  className="font-medium text-lg"
+                  className="project-type"
                   style={{
                     borderLeft: `1px solid white`,
-                    paddingLeft: `10px`,
+                    paddingLeft: `0.5rem`,
+                    textOverflow: `ellipsis`,
+                    whiteSpace: `nowrap`,
+                    overflow: `hidden`,
                   }}
                 >
                   {brand}

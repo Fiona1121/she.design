@@ -243,7 +243,7 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                         <div
                           className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
                         >
-                          <p className="text-[22px] font-libre">
+                          <p className="text-[22px] font-montserrat">
                             {node?.title}
                           </p>
                         </div>
