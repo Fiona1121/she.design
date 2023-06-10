@@ -2,7 +2,6 @@ import * as React from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import { Zoom } from "react-slideshow-image";
-import Fade from "react-reveal/Fade";
 import Layout from "../components/Layout";
 import SEO from "../components/Seo";
 
@@ -151,7 +150,11 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                 {filteredData
                   .slice((page - 1) * 5, page * 5)
                   .map((node: any) => (
-                    <Fade bottom>
+                    <div
+                      data-sal="slide-up"
+                      data-sal-duration="500"
+                      data-sal-easing="ease"
+                    >
                       <div
                         className="w-full h-1/3 relative cursor-pointer"
                         onClick={() =>
@@ -173,7 +176,7 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                           </p>
                         </div>
                       </div>
-                    </Fade>
+                    </div>
                   ))}
               </div>
               <div className="w-full flex justify-center items-center mt-10">

@@ -2,7 +2,6 @@ import * as React from "react";
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
 import { GatsbyImage } from "gatsby-plugin-image";
-import Fade from "react-reveal/Fade";
 
 interface ProjectProps {
   pageContext: {
@@ -37,19 +36,27 @@ const Project = ({ pageContext }: ProjectProps) => {
           <div className="xl:max-w-[1400px] w-full h-full">
             <div className="flex flex-col gap-[15px] mobile-design">
               <div className="flex flex-col items-stretch justify-center">
-                <Fade bottom>
+                <div
+                  data-sal="slide-up"
+                  data-sal-duration="500"
+                  data-sal-easing="ease"
+                >
                   <GatsbyImage
                     image={heroImage}
                     alt={title}
                     className="w-full"
                   />
-                </Fade>
+                </div>
               </div>
               {gallery &&
                 gallery?.map((row: any) => {
                   return (
                     <div className="grid grid-col-1 gap-[15px]">
-                      <Fade bottom>
+                      <div
+                        data-sal="slide-up"
+                        data-sal-duration="500"
+                        data-sal-easing="ease"
+                      >
                         <>
                           {row.images.map((image: any) => (
                             <GatsbyImage
@@ -59,20 +66,24 @@ const Project = ({ pageContext }: ProjectProps) => {
                             />
                           ))}
                         </>
-                      </Fade>
+                      </div>
                     </div>
                   );
                 })}
             </div>
             <div className="hidden md:flex flex-col gap-[15px]">
               <div className="flex flex-col items-stretch justify-center">
-                <Fade bottom>
+                <div
+                  data-sal="slide-up"
+                  data-sal-duration="500"
+                  data-sal-easing="ease"
+                >
                   <GatsbyImage
                     image={heroImage}
                     alt={title}
                     className="w-full"
                   />
-                </Fade>
+                </div>
               </div>
               {gallery &&
                 gallery?.map((row: any) => {
@@ -86,7 +97,11 @@ const Project = ({ pageContext }: ProjectProps) => {
                           .join(" "),
                       }}
                     >
-                      <Fade bottom>
+                      <div
+                        data-sal="slide-up"
+                        data-sal-duration="500"
+                        data-sal-easing="ease"
+                      >
                         <>
                           {row.images.map((image: any) => (
                             <GatsbyImage
@@ -99,7 +114,7 @@ const Project = ({ pageContext }: ProjectProps) => {
                             />
                           ))}
                         </>
-                      </Fade>
+                      </div>
                     </div>
                   );
                 })}

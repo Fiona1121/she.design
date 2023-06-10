@@ -3,7 +3,6 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import SEO from "../components/Seo";
 import { GatsbyImage } from "gatsby-plugin-image";
-import Fade from "react-reveal/Fade";
 
 type IndexPageProps = {
   data: {
@@ -35,7 +34,6 @@ const gridSpanConfig = [4, 4, 4, 6, 6, 12];
 const gridHeightConfig = [30, 30, 30, 40, 40, 70];
 
 const IndexPage = ({ data }: IndexPageProps) => {
-
   return (
     <Layout>
       <SEO />
@@ -54,25 +52,31 @@ const IndexPage = ({ data }: IndexPageProps) => {
                   )}`)
                 }
               >
-                <Fade bottom>
-                  <GatsbyImage
-                    image={
-                      data?.contentfulLayoutHome?.primaryProject?.heroImage
-                        ?.gatsbyImageData
-                    }
-                    alt={
-                      data?.contentfulLayoutHome?.primaryProject?.title ||
-                      "primary-project"
-                    }
-                    className="w-full object-cover h-[30vh]"
-                  />
-                </Fade>
                 <div
-                  className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
+                  data-sal="slide-up"
+                  data-sal-duration="500"
+                  data-sal-easing="ease"
                 >
-                  <p className="text-[22px] font-libre">
-                    {data?.contentfulLayoutHome?.primaryProject?.title}
-                  </p>
+                  <>
+                    <GatsbyImage
+                      image={
+                        data?.contentfulLayoutHome?.primaryProject?.heroImage
+                          ?.gatsbyImageData
+                      }
+                      alt={
+                        data?.contentfulLayoutHome?.primaryProject?.title ||
+                        "primary-project"
+                      }
+                      className="w-full object-cover h-[30vh]"
+                    />
+                    <div
+                      className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
+                    >
+                      <p className="text-[22px] font-libre">
+                        {data?.contentfulLayoutHome?.primaryProject?.title}
+                      </p>
+                    </div>
+                  </>
                 </div>
               </div>
               {data.allContentfulItemProject.nodes
@@ -94,13 +98,17 @@ const IndexPage = ({ data }: IndexPageProps) => {
                         gridColumn: `span ${gridSpanConfig[index % 6]}`,
                       }}
                     >
-                      <Fade bottom>
+                      <div
+                        data-sal="slide-up"
+                        data-sal-duration="500"
+                        data-sal-easing="ease"
+                      >
                         <GatsbyImage
                           image={item.heroImage?.gatsbyImageData}
                           alt={item.title || "primary-project"}
                           className="w-full object-cover h-[30vh]"
                         />
-                      </Fade>
+                      </div>
                       <div
                         className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
                       >
@@ -122,7 +130,11 @@ const IndexPage = ({ data }: IndexPageProps) => {
                   )}`)
                 }
               >
-                <Fade bottom>
+                <div
+                  data-sal="slide-up"
+                  data-sal-duration="500"
+                  data-sal-easing="ease"
+                >
                   <GatsbyImage
                     image={
                       data?.contentfulLayoutHome?.primaryProject?.heroImage
@@ -134,7 +146,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
                     }
                     className="w-full object-cover h-[70vh]"
                   />
-                </Fade>
+                </div>
                 <div
                   className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
                 >
@@ -163,7 +175,11 @@ const IndexPage = ({ data }: IndexPageProps) => {
                           gridColumn: `span ${gridSpanConfig[index % 6]}`,
                         }}
                       >
-                        <Fade bottom>
+                        <div
+                          data-sal="slide-up"
+                          data-sal-duration="500"
+                          data-sal-easing="ease"
+                        >
                           <GatsbyImage
                             image={item.heroImage?.gatsbyImageData}
                             alt={item.title || "primary-project"}
@@ -172,7 +188,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
                               height: `${gridHeightConfig[index % 6]}vh`,
                             }}
                           />
-                        </Fade>
+                        </div>
                         <div
                           className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
                         >

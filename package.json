@@ -19,6 +19,7 @@
     "@formkit/auto-animate": "^1.0.0-beta.6",
     "gatsby": "^5.8.1",
     "gatsby-plugin-image": "^3.9.0",
+    "gatsby-plugin-scroll-reveal-with-new-react": "^0.0.8",
     "gatsby-plugin-sharp": "^5.9.0",
     "gatsby-remark-images-contentful": "^6.9.0",
     "gatsby-source-contentful": "^8.9.0",
@@ -28,7 +29,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
-    "react-reveal": "^1.2.2",
     "react-slideshow-image": "^4.2.1"
   },
   "devDependencies": {

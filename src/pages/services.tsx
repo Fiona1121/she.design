@@ -2,7 +2,6 @@ import * as React from "react";
 import Layout from "../components/Layout";
 import SEO from "../components/Seo";
 import { PageProps, graphql } from "gatsby";
-import Fade from "react-reveal/Fade";
 
 const ServicesPage = ({ data }: PageProps<Queries.ServicesPageQuery>) => {
   const { contentfulLayoutServices } = data;
@@ -16,7 +15,11 @@ const ServicesPage = ({ data }: PageProps<Queries.ServicesPageQuery>) => {
       <main>
         <section className="mx-6 sm:mx-24 flex justify-center">
           <div className="xl:max-w-[1400px] w-full h-full pt-20 sm:pt-28 sm:pb-8 px-4 sm:px-6">
-            <Fade bottom>
+            <div
+              data-sal="slide-up"
+              data-sal-duration="500"
+              data-sal-easing="ease"
+            >
               <h4 className="font-montserrat font-medium leading-normal">
                 專業諮詢規劃 用心執行完成
               </h4>
@@ -25,29 +28,37 @@ const ServicesPage = ({ data }: PageProps<Queries.ServicesPageQuery>) => {
                 <br />
                 from a professional company.
               </h4>
-            </Fade>
+            </div>
           </div>
         </section>
         <section className="mx-6 sm:mx-24 flex justify-center">
           <div className="xl:max-w-[1400px] w-full h-full flex flex-col sm:flex sm:flex-row pt-8 pb-16 px-4 sm:px-6 border-b-[1px] sm:gap-6">
             <div className="w-full sm:w-1/5">
-              <Fade bottom>
+              <div
+                data-sal="slide-up"
+                data-sal-duration="500"
+                data-sal-easing="ease"
+              >
                 <h4 className="font-montserrat font-medium sm:w-[min-content] whitespace-break-spaces">
                   Design Services
                 </h4>
-              </Fade>
+              </div>
             </div>
             <ul className="w-full sm:w-3/5 grid md:grid-cols-2">
               {contentfulLayoutServices?.services?.map(
                 (service: any, index: number) => (
-                  <Fade bottom>
+                  <div
+                    data-sal="slide-up"
+                    data-sal-duration="500"
+                    data-sal-easing="ease"
+                  >
                     <li
                       className="font-montserrat font-medium text-lg"
                       key={`service-${index}`}
                     >
                       {service}
                     </li>
-                  </Fade>
+                  </div>
                 )
               )}
             </ul>
@@ -57,7 +68,11 @@ const ServicesPage = ({ data }: PageProps<Queries.ServicesPageQuery>) => {
           <ol className="xl:max-w-[1400px] w-full h-full flex flex-col gap-16 px-4 sm:px-6 pt-16 pb-16 border-b-[1px]">
             {contentfulLayoutServices?.processes?.map(
               (process: any, index: number) => (
-                <Fade bottom>
+                <div
+                  data-sal="slide-up"
+                  data-sal-duration="500"
+                  data-sal-easing="ease"
+                >
                   <li
                     className="w-full flex flex-col md:flex md:flex-row gap-6 md:gap-10"
                     key={`process-${index}`}
@@ -90,23 +105,31 @@ const ServicesPage = ({ data }: PageProps<Queries.ServicesPageQuery>) => {
                       />
                     </div>
                   </li>
-                </Fade>
+                </div>
               )
             )}
           </ol>
         </section>
         <section className="mx-6 sm:mx-24 flex justify-center">
           <div className="xl:max-w-[1400px] w-full h-full px-4 sm:px-6 pt-16 pb-16">
-            <Fade bottom>
+            <div
+              data-sal="slide-up"
+              data-sal-duration="500"
+              data-sal-easing="ease"
+            >
               <div className="flex items-center mb-6">
                 <h4>聯絡我們</h4>
                 <div className="h-px bg-white ml-4 w-[100px] mb-4"></div>
               </div>
-            </Fade>
+            </div>
             <div className="xl:max-w-[1400px] w-full h-full grid sm:grid-cols-2">
               {contentfulLayoutServices?.contacts?.map(
                 (contact: any, index: number) => (
-                  <Fade bottom>
+                  <div
+                    data-sal="slide-up"
+                    data-sal-duration="500"
+                    data-sal-easing="ease"
+                  >
                     <div
                       className="w-full flex flex-col gap-2"
                       key={`contact-${index}`}
@@ -138,7 +161,7 @@ const ServicesPage = ({ data }: PageProps<Queries.ServicesPageQuery>) => {
                         </div>
                       </div>
                     </div>
-                  </Fade>
+                  </div>
                 )
               )}
             </div>
