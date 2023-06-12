@@ -31,10 +31,10 @@ const Project = ({ pageContext }: ProjectProps) => {
       <Seo title={title} description={description.excerpt} />
       <main className="min-h-screen flex flex-col">
         <section
-          className={`px-6 sm:px-10 pt-14 sm:pt-16 pb-8 flex justify-center grow-0`}
+          className={`px-3 sm:px-5 pt-14 sm:pt-16 pb-8 flex justify-center grow-0`}
         >
           <div className="xl:max-w-[1400px] w-full h-full">
-            <div className="flex flex-col gap-[15px] mobile-design">
+            <div className="flex flex-col gap-2 mobile-design">
               <div className="flex flex-col items-stretch justify-center">
                 <div
                   data-sal="slide-up"
@@ -51,27 +51,25 @@ const Project = ({ pageContext }: ProjectProps) => {
               {gallery &&
                 gallery?.map((row: any) => {
                   return (
-                    <div className="grid grid-col-1 gap-[15px]">
-                      <div
-                        data-sal="slide-up"
-                        data-sal-duration="500"
-                        data-sal-easing="ease"
-                      >
-                        <>
-                          {row.images.map((image: any) => (
-                            <GatsbyImage
-                              image={image.gatsbyImageData}
-                              alt={title}
-                              className="object-cover w-full"
-                            />
-                          ))}
-                        </>
-                      </div>
+                    <div className="grid grid-col-1 gap-2">
+                      {row.images.map((image: any) => (
+                        <div
+                          data-sal="slide-up"
+                          data-sal-duration="500"
+                          data-sal-easing="ease"
+                        >
+                          <GatsbyImage
+                            image={image.gatsbyImageData}
+                            alt={title}
+                            className="object-cover w-full"
+                          />
+                        </div>
+                      ))}
                     </div>
                   );
                 })}
             </div>
-            <div className="hidden md:flex flex-col gap-[15px]">
+            <div className="hidden md:flex flex-col gap-2">
               <div className="flex flex-col items-stretch justify-center">
                 <div
                   data-sal="slide-up"
@@ -89,7 +87,7 @@ const Project = ({ pageContext }: ProjectProps) => {
                 gallery?.map((row: any) => {
                   return (
                     <div
-                      className="grid gap-[15px]"
+                      className="grid gap-2"
                       style={{
                         gridTemplateColumns: row.widthRatio
                           .split(" ")
@@ -97,31 +95,29 @@ const Project = ({ pageContext }: ProjectProps) => {
                           .join(" "),
                       }}
                     >
-                      <div
-                        data-sal="slide-up"
-                        data-sal-duration="500"
-                        data-sal-easing="ease"
-                      >
-                        <>
-                          {row.images.map((image: any) => (
-                            <GatsbyImage
-                              image={image.gatsbyImageData}
-                              alt={title}
-                              className="object-cover w-full"
-                              style={{
-                                height: `${row.height}vh`,
-                              }}
-                            />
-                          ))}
-                        </>
-                      </div>
+                      {row.images.map((image: any) => (
+                        <div
+                          data-sal="slide-up"
+                          data-sal-duration="750"
+                          data-sal-easing="ease"
+                        >
+                          <GatsbyImage
+                            image={image.gatsbyImageData}
+                            alt={title}
+                            className="object-cover w-full"
+                            style={{
+                              height: `${row.height}vh`,
+                            }}
+                          />
+                        </div>
+                      ))}
                     </div>
                   );
                 })}
             </div>
           </div>
         </section>
-        <section className={`px-6 py-4 sm:px-10 flex justify-center grow`}>
+        <section className={`px-3 py-4 sm:px-5 flex justify-center grow`}>
           <div className="xl:max-w-[1400px] w-full flex flex-col justify-between">
             <div className="flex flex-col items-stretch justify-center">
               <h1 className="project-title">{title}</h1>

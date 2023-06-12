@@ -38,7 +38,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
     <Layout>
       <SEO />
       <main>
-        <section className="px-6 sm:px-10 pt-14 sm:pt-16 pb-8 min-h-screen flex justify-center">
+        <section className="px-3 sm:px-5 pt-14 sm:pt-16 pb-8 min-h-screen flex justify-center">
           <div className="xl:max-w-[1400px] w-full h-full">
             {/* Mobile Design */}
             <div className="flex flex-col gap-[15px] sm:hidden">

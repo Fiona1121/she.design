@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
   `);
 
   return (
-    <section className="px-6 sm:px-10 flex justify-center items-center py-6">
+    <section className="px-3 sm:px-5 flex justify-center items-center py-6">
       <div className="xl:max-w-[1400px] w-full flex-col">
         <div className="w-full flex flex-center justify-center items-center cursor-pointer">
           <div className="flex flex-col justify-center items-center" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
