@@ -169,9 +169,9 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                           className={`w-full h-1/3 object-cover`}
                         />
                         <div
-                          className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
+                          className={`flex flex-col-reverse p-3 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
                         >
-                          <p className="text-[22px] font-libre">
+                          <p className="text-[15px] font-libre text-right">
                             {node?.title}
                           </p>
                         </div>
@@ -244,9 +244,9 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                           className={`w-full h-full object-cover`}
                         />
                         <div
-                          className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
+                          className={`flex flex-col-reverse p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
                         >
-                          <p className="text-[22px] font-montserrat">
+                          <p className="text-[18px] font-montserrat text-right">
                             {node?.title}
                           </p>
                         </div>
