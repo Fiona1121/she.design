@@ -45,7 +45,7 @@ body {
 }
 
 .project-title {
-  @apply text-3xl sm:text-4xl font-bold mb-4;
+  @apply text-xl sm:text-2xl font-bold mb-4;
 }
 
 .project-type {

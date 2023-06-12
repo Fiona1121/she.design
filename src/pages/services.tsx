@@ -136,7 +136,7 @@ const ServicesPage = ({ data }: PageProps<Queries.ServicesPageQuery>) => {
                     >
                       <h5 className="font-montserrat font-medium">
                         {contact.name}
-                        <span className="font-light text-xl opacity-70 ml-4">
+                        <span className="font-normal text-xl opacity-70 ml-4">
                           {contact.title}
                         </span>
                       </h5>
