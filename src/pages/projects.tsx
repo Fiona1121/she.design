@@ -14,6 +14,9 @@ type IndexPageProps = {
         heroImage: {
           gatsbyImageData: any;
         };
+        heroImage_m: {
+          gatsbyImageData: any;
+        };
       }[];
     };
     allContentfulItemProject: {
@@ -77,7 +80,12 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                 <GatsbyImage
                   image={slide?.heroImage?.gatsbyImageData}
                   alt={slide?.title || ""}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover hidden md:block"
+                />
+                <GatsbyImage
+                  image={slide?.heroImage_m?.gatsbyImageData}
+                  alt={slide?.title || ""}
+                  className="w-full h-full object-cover md:hidden"
                 />
               </div>
             ))}
@@ -326,6 +334,9 @@ export const query = graphql`
       slides {
         title
         heroImage {
+          gatsbyImageData(placeholder: BLURRED, width: 2000)
+        }
+        heroImage_m {
           gatsbyImageData(placeholder: BLURRED, width: 1000)
         }
       }
