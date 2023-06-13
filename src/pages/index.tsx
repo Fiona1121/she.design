@@ -41,7 +41,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
         <section className="px-3 sm:px-5 pt-14 sm:pt-16 pb-8 min-h-screen flex justify-center">
           <div className="xl:max-w-[1400px] w-full h-full">
             {/* Mobile Design */}
-            <div className="flex flex-col gap-[15px] sm:hidden">
+            <div className="flex flex-col gap-2 sm:hidden">
               <div
                 className={`relative cursor-pointer`}
                 onClick={() =>
@@ -70,9 +70,9 @@ const IndexPage = ({ data }: IndexPageProps) => {
                       className="w-full object-cover h-[30vh]"
                     />
                     <div
-                      className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
+                      className={`flex flex-col-reverse p-3 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
                     >
-                      <p className="text-[22px] font-libre">
+                      <p className="text-[15px] font-libre text-right">
                         {data?.contentfulLayoutHome?.primaryProject?.title}
                       </p>
                     </div>
@@ -110,18 +110,18 @@ const IndexPage = ({ data }: IndexPageProps) => {
                         />
                       </div>
                       <div
-                        className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
+                        className={`flex flex-col-reverse p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
                       >
-                        <p className="text-[22px] font-libre">{item.title}</p>
+                        <p className="text-[15px] font-libre text-right">{item.title}</p>
                       </div>
                     </div>
                   );
                 })}
             </div>
             {/* Desktop Design */}
-            <div className="flex-col gap-[15px] hidden sm:flex">
+            <div className="flex-col gap-2 hidden sm:flex">
               <div
-                className={`grid gap-[15px] relative sm:grid-cols-1 cursor-pointer`}
+                className={`grid gap-2 relative sm:grid-cols-1 cursor-pointer`}
                 onClick={() =>
                   (window.location.href = `/project/${encodeURI(
                     data?.contentfulLayoutHome?.primaryProject?.title_en
@@ -148,14 +148,14 @@ const IndexPage = ({ data }: IndexPageProps) => {
                   />
                 </div>
                 <div
-                  className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
+                  className={`flex flex-col-reverse p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
                 >
-                  <p className="text-[22px] font-libre">
+                  <p className="text-[18px] font-libre text-right">
                     {data?.contentfulLayoutHome?.primaryProject?.title}
                   </p>
                 </div>
               </div>
-              <div className="grid gap-[15px] grid-cols-12">
+              <div className="grid gap-2 grid-cols-12">
                 {data.allContentfulItemProject.nodes
                   .filter(
                     (item) =>
@@ -190,9 +190,9 @@ const IndexPage = ({ data }: IndexPageProps) => {
                           />
                         </div>
                         <div
-                          className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
+                          className={`flex flex-col-reverse p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
                         >
-                          <p className="text-[22px] font-libre">{item.title}</p>
+                          <p className="text-[18px] font-libre text-right">{item.title}</p>
                         </div>
                       </div>
                     );
