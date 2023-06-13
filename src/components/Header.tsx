@@ -9,16 +9,16 @@ const Header: React.FC = () => {
   return (
     <div className="px-3 sm:px-5 flex justify-center items-center fixed top-0 left-0 w-full bg-black/20 z-50">
       <div className="xl:max-w-[1400px] w-full">
-        <nav className="w-full flex py-[0.75rem] justify-between items-center navbar">
+        <nav className="hidden sm:flex w-full flex py-[0.75rem] justify-between items-center navbar">
           <div
-            className="logo-placeholder cursor-pointer"
+            className="hidden sm:flex logo-placeholder cursor-pointer"
             onClick={() => (window.location.href = "/")}
           >
             <StaticImage
               src="../assets/logo.svg"
               alt="She.Design Logo"
               placeholder="blurred"
-              height={28}
+              height={26}
             />
           </div>
           <ul className="list-none sm:flex hidden justify-end items-center flex-1">
@@ -33,12 +33,36 @@ const Header: React.FC = () => {
               </li>
             ))}
           </ul>
+        </nav>
+        <nav className="flex sm:hidden w-full flex py-[0.75rem] justify-between items-center navbar relative">
+          <div
+            className="logo-placeholder cursor-pointer"
+            onClick={() => (window.location.href = "/")}
+          >
+            <StaticImage
+              src="../assets/logo-img.svg"
+              alt="She.Design Logo Image"
+              placeholder="blurred"
+              height={26}
+            />
+          </div>
+          <div
+            className="absolute left-1/2 transform -translate-x-1/2"
+            onClick={() => (window.location.href = "/")}
+          >
+            <StaticImage
+              src="../assets/logo-word.svg"
+              alt="She.Design Logo Word"
+              placeholder="blurred"
+              height={26}
+            />
+          </div>
           <div className="sm:hidden flex flex-1 justify-end items-center">
             <span onClick={() => setToggle(!toggle)}>
               <StaticImage
                 src="../assets/menu.svg"
                 alt="menu"
-                className="w-[18px] h-[18px] object-contain"
+                className="w-[20px] h-[20px] object-contain"
               />
             </span>
             <div
@@ -48,13 +72,19 @@ const Header: React.FC = () => {
             >
               <ul className="list-none w-full h-full flex flex-col justify-center items-center">
                 {navLinks.map((nav, index) => (
-                  <li
-                    key={nav.id}
-                    className={`my-3 font-libre font-medium cursor-pointer text-[24px]`}
-                    onClick={() => setActive(nav.title)}
+                  <div
+                    data-sal="slide-left"
+                    data-sal-duration="500"
+                    data-sal-easing="ease"
                   >
-                    <a href={`/${nav.id}`}>{nav.title}</a>
-                  </li>
+                    <li
+                      key={nav.id}
+                      className={`my-3 font-libre font-medium cursor-pointer text-[24px]`}
+                      onClick={() => setActive(nav.title)}
+                    >
+                      <a href={`/${nav.id}`}>{nav.title}</a>
+                    </li>
+                  </div>
                 ))}
               </ul>
               <div
@@ -64,8 +94,8 @@ const Header: React.FC = () => {
                 <StaticImage
                   src="../assets/close.svg"
                   alt="close"
-                  width={18}
-                  height={18}
+                  width={20}
+                  height={20}
                 />
               </div>
             </div>
