@@ -20,13 +20,17 @@ const ServicesPage = ({ data }: PageProps<Queries.ServicesPageQuery>) => {
               data-sal-duration="500"
               data-sal-easing="ease"
             >
-              <h4 className="font-montserrat font-medium leading-normal">
-                專業諮詢規劃 用心執行完成
+              <h4 className="font-montserrat font-medium leading-normal whitespace-pre-wrap">
+                {
+                  contentfulLayoutServices?.introduction?.childMarkdownRemark
+                    ?.rawMarkdownBody
+                }
               </h4>
-              <h4 className="font-montserrat font-medium leading-normal">
-                Open process consultation and support,
-                <br />
-                from a professional company.
+              <h4 className="font-montserrat font-medium leading-normal whitespace-pre-wrap">
+                {
+                  contentfulLayoutServices?.introduction_en?.childMarkdownRemark
+                    ?.rawMarkdownBody
+                }
               </h4>
             </div>
           </div>
@@ -179,6 +183,16 @@ export const query = graphql`
     contentfulLayoutServices {
       title
       description
+      introduction {
+        childMarkdownRemark {
+          rawMarkdownBody
+        }
+      }
+      introduction_en {
+        childMarkdownRemark {
+          rawMarkdownBody
+        }
+      }
       services
       processes {
         title
