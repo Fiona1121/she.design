@@ -31,7 +31,7 @@ type IndexPageProps = {
 };
 
 const gridSpanConfig = [4, 4, 4, 6, 6, 12];
-const gridHeightConfig = [30, 30, 30, 40, 40, 70];
+const gridHeightConfig = [35, 35, 35, 50, 50, 80];
 
 const IndexPage = ({ data }: IndexPageProps) => {
   return (
@@ -39,7 +39,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
       <SEO />
       <main>
         <section className="px-3 sm:px-5 pt-14 sm:pt-16 pb-8 min-h-screen flex justify-center">
-          <div className="xl:max-w-[1400px] w-full h-full">
+          <div className="xl:max-w-[2000px] w-full h-full">
             {/* Mobile Design */}
             <div className="flex flex-col gap-2 sm:hidden">
               <div
@@ -146,7 +146,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
                       data?.contentfulLayoutHome?.primaryProject?.title ||
                       "primary-project"
                     }
-                    className="w-full object-cover h-[70vh]"
+                    className="w-full object-cover h-[80vh]"
                   />
                 </div>
                 <div

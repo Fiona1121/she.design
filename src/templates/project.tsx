@@ -33,7 +33,7 @@ const Project = ({ pageContext }: ProjectProps) => {
         <section
           className={`px-3 sm:px-5 pt-14 sm:pt-16 pb-8 flex justify-center grow-0`}
         >
-          <div className="xl:max-w-[1400px] w-full h-full">
+          <div className="xl:max-w-[2000px] w-full h-full">
             <div className="flex flex-col gap-2 mobile-design">
               <div className="flex flex-col items-stretch justify-center">
                 <div
@@ -118,7 +118,7 @@ const Project = ({ pageContext }: ProjectProps) => {
           </div>
         </section>
         <section className={`px-3 py-4 sm:px-5 flex justify-center grow`}>
-          <div className="xl:max-w-[1400px] w-full flex flex-col justify-between">
+          <div className="xl:max-w-[2000px] w-full flex flex-col justify-between">
             <div className="flex flex-col items-stretch justify-center">
               <h1 className="project-title">{title}</h1>
               <div

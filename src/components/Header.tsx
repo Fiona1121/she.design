@@ -8,7 +8,7 @@ const Header: React.FC = () => {
 
   return (
     <div className="px-3 sm:px-5 flex justify-center items-center fixed top-0 left-0 w-full bg-black/20 z-50">
-      <div className="xl:max-w-[1400px] w-full">
+      <div className="xl:max-w-[2000px] w-full">
         <nav className="hidden sm:flex w-full flex py-[0.75rem] justify-between items-center navbar">
           <div
             className="hidden sm:flex logo-placeholder cursor-pointer"
@@ -73,7 +73,7 @@ const Header: React.FC = () => {
               <ul className="list-none w-full h-full flex flex-col justify-center items-center">
                 {navLinks.map((nav, index) => (
                   <div
-                    data-sal="slide-left"
+                    data-sal="slide-down"
                     data-sal-duration="500"
                     data-sal-easing="ease"
                   >

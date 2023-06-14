@@ -14,7 +14,7 @@ const ServicesPage = ({ data }: PageProps<Queries.ServicesPageQuery>) => {
       />
       <main>
         <section className="mx-6 sm:mx-24 flex justify-center">
-          <div className="xl:max-w-[1400px] w-full h-full pt-20 sm:pt-28 sm:pb-8 px-4 sm:px-6">
+          <div className="xl:max-w-[2000px] w-full h-full pt-20 sm:pt-28 sm:pb-8 px-4 sm:px-6">
             <div
               data-sal="slide-up"
               data-sal-duration="500"
@@ -36,7 +36,7 @@ const ServicesPage = ({ data }: PageProps<Queries.ServicesPageQuery>) => {
           </div>
         </section>
         <section className="mx-6 sm:mx-24 flex justify-center">
-          <div className="xl:max-w-[1400px] w-full h-full flex flex-col sm:flex sm:flex-row pt-8 pb-16 px-4 sm:px-6 border-b-[1px] sm:gap-6">
+          <div className="xl:max-w-[2000px] w-full h-full flex flex-col sm:flex sm:flex-row pt-8 pb-16 px-4 sm:px-6 border-b-[1px] sm:gap-6">
             <div className="w-full sm:w-1/5">
               <div
                 data-sal="slide-up"
@@ -69,7 +69,7 @@ const ServicesPage = ({ data }: PageProps<Queries.ServicesPageQuery>) => {
           </div>
         </section>
         <section className="mx-6 sm:mx-24 flex justify-center">
-          <ol className="xl:max-w-[1400px] w-full h-full flex flex-col gap-16 px-4 sm:px-6 pt-16 pb-16 border-b-[1px]">
+          <ol className="xl:max-w-[2000px] w-full h-full flex flex-col gap-16 px-4 sm:px-6 pt-16 pb-16 border-b-[1px]">
             {contentfulLayoutServices?.processes?.map(
               (process: any, index: number) => (
                 <div
@@ -115,7 +115,7 @@ const ServicesPage = ({ data }: PageProps<Queries.ServicesPageQuery>) => {
           </ol>
         </section>
         <section className="mx-6 sm:mx-24 flex justify-center">
-          <div className="xl:max-w-[1400px] w-full h-full px-4 sm:px-6 pt-16 pb-16">
+          <div className="xl:max-w-[2000px] w-full h-full px-4 sm:px-6 pt-16 pb-16">
             <div
               data-sal="slide-up"
               data-sal-duration="500"
@@ -126,7 +126,7 @@ const ServicesPage = ({ data }: PageProps<Queries.ServicesPageQuery>) => {
                 <div className="h-px bg-white ml-4 w-[100px] mb-4"></div>
               </div>
             </div>
-            <div className="xl:max-w-[1400px] w-full h-full grid sm:grid-cols-2">
+            <div className="xl:max-w-[2000px] w-full h-full grid sm:grid-cols-2">
               {contentfulLayoutServices?.contacts?.map(
                 (contact: any, index: number) => (
                   <div

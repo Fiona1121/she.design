@@ -104,8 +104,8 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
             <span></span>
           </div>
         </section>
-        <section className="px-3 sm:px-5 pt-14 sm:pt-16 pb-8 min-h-screen sm:h-[100vh]">
-          <div className="xl:max-w-[1400px] w-full h-full">
+        <section className="px-3 sm:px-5 py-14 sm:pt-16 min-h-screen sm:h-[100vh] flex justify-center">
+          <div className="xl:max-w-[2000px] w-full h-full">
             {/* mobile design */}
             <div className="sm:hidden flex flex-col justify-center items-center">
               <div className="w-full flex justify-start items-center my-5 font-libre font-normal text-[24px] ">
@@ -131,6 +131,9 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                     {tabs.map((tab) => (
                       <div
                         key={tab.id}
+                        data-sal="slide-down"
+                        data-sal-duration="500"
+                        data-sal-easing="ease"
                         className={`my-3 mx-20 pb-px font-libre font-normal text-[24px] cursor-pointer ${
                           active.id === tab.id
                             ? "border-b-[1px] border-white"
@@ -158,9 +161,9 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                   </div>
                 </div>
               </div>
-              <div className="w-full h-full flex flex-col justify-center items-center gap-[15px]">
+              <div className="w-full h-full flex flex-col justify-center items-center gap-2">
                 {filteredData
-                  .slice((page - 1) * 5, page * 5)
+                  .slice((page - 1) * 3, page * 3)
                   .map((node: any) => (
                     <div
                       data-sal="slide-up"
@@ -192,7 +195,10 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                   ))}
               </div>
               <div className="w-full flex justify-center items-center mt-10">
-                <div className="mx-2">
+                <div
+                  className="mx-2"
+                  onClick={() => setPage((page) => (page > 1 ? page - 1 : 1))}
+                >
                   <StaticImage
                     src="../assets/arrowleft.svg"
                     alt="previous page"
@@ -202,10 +208,12 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                     className={`${
                       page > 1 ? "cursor-pointer opacity-100" : "opacity-50"
                     }`}
-                    onClick={() => setPage(page - 1)}
                   />
                 </div>
-                <div className="mx-2">
+                <div
+                  className="mx-2"
+                  onClick={() => setPage((page) => (hasMore ? page + 1 : page))}
+                >
                   <StaticImage
                     src="../assets/arrowright.svg"
                     alt="next page"
@@ -215,14 +223,13 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                     className={`${
                       hasMore ? "cursor-pointer opacity-100" : "opacity-50"
                     }`}
-                    onClick={() => setPage(page + 1)}
                   />
                 </div>
               </div>
             </div>
             {/* destop design */}
             <div className="hidden sm:flex sm:flex-col justify-center items-center h-full">
-              <div className="w-full flex justify-center items-center mb-4">
+              <div className="w-full flex justify-center items-center mb-2">
                 {tabs.map((tab) => (
                   <div
                     key={tab.id}
@@ -237,8 +244,8 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                   </div>
                 ))}
               </div>
-              <div className="w-full grow flex flex-col justify-center items-center gap-[15px]">
-                <div className="w-full h-[67%] flex flex-row gap-[15px]">
+              <div className="w-full grow flex flex-col justify-center items-center gap-2">
+                <div className="w-full h-[60%] flex flex-row gap-2">
                   {filteredData
                     .slice((page - 1) * 5, page * 5 - 3)
                     .map((node: any) => (
@@ -265,7 +272,7 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                       </div>
                     ))}
                 </div>
-                <div className="w-full h-[33%] flex flex-row gap-[15px]">
+                <div className="w-full h-[40%] flex flex-row gap-2">
                   {filteredData
                     .slice(page * 5 - 3, page * 5)
                     .map((node: any) => (
@@ -283,9 +290,9 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                           className={`w-full h-full object-cover`}
                         />
                         <div
-                          className={`p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
+                          className={`flex flex-col-reverse p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
                         >
-                          <p className="text-[22px] font-libre">
+                          <p className="text-[18px] font-montserrat text-right">
                             {node?.title}
                           </p>
                         </div>
@@ -293,8 +300,11 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                     ))}
                 </div>
               </div>
-              <div className="w-full flex justify-center items-center mt-10">
-                <div className="mx-2">
+              <div className="w-full flex justify-center items-center mt-8">
+                <div
+                  className="mx-2"
+                  onClick={() => setPage((page) => (page > 1 ? page - 1 : 1))}
+                >
                   <StaticImage
                     src="../assets/arrowleft.svg"
                     alt="previous page"
@@ -304,10 +314,12 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                     className={`${
                       page > 1 ? "cursor-pointer opacity-100" : "opacity-50"
                     }`}
-                    onClick={() => setPage(page - 1)}
                   />
                 </div>
-                <div className="mx-2">
+                <div
+                  className="mx-2"
+                  onClick={() => setPage((page) => (hasMore ? page + 1 : page))}
+                >
                   <StaticImage
                     src="../assets/arrowright.svg"
                     alt="next page"
@@ -317,7 +329,6 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                     className={`${
                       hasMore ? "cursor-pointer opacity-100" : "opacity-50"
                     }`}
-                    onClick={() => setPage(page + 1)}
                   />
                 </div>
               </div>
