@@ -112,7 +112,9 @@ const IndexPage = ({ data }: IndexPageProps) => {
                       <div
                         className={`flex flex-col-reverse p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
                       >
-                        <p className="text-[15px] font-libre text-right">{item.title}</p>
+                        <p className="text-[15px] font-libre text-right">
+                          {item.title}
+                        </p>
                       </div>
                     </div>
                   );
@@ -192,7 +194,9 @@ const IndexPage = ({ data }: IndexPageProps) => {
                         <div
                           className={`flex flex-col-reverse p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
                         >
-                          <p className="text-[18px] font-libre text-right">{item.title}</p>
+                          <p className="text-[18px] font-libre text-right">
+                            {item.title}
+                          </p>
                         </div>
                       </div>
                     );
@@ -217,7 +221,7 @@ export const query = graphql`
         title
         title_en
         heroImage {
-          gatsbyImageData(width: 1280, placeholder: BLURRED)
+          gatsbyImageData(width: 3000, placeholder: BLURRED)
         }
       }
     }
@@ -227,7 +231,7 @@ export const query = graphql`
         title
         title_en
         heroImage {
-          gatsbyImageData(width: 1280, placeholder: BLURRED)
+          gatsbyImageData(width: 3000, placeholder: BLURRED)
         }
       }
     }

@@ -334,10 +334,10 @@ export const query = graphql`
       slides {
         title
         heroImage {
-          gatsbyImageData(placeholder: BLURRED, width: 2000)
+          gatsbyImageData(placeholder: BLURRED, width: 3000)
         }
         heroImage_m {
-          gatsbyImageData(placeholder: BLURRED, width: 1000)
+          gatsbyImageData(placeholder: BLURRED, width: 3000)
         }
       }
     }
@@ -347,7 +347,7 @@ export const query = graphql`
         title
         title_en
         heroImage {
-          gatsbyImageData(placeholder: BLURRED, width: 1000)
+          gatsbyImageData(placeholder: BLURRED, width: 3000)
         }
         types
       }
