@@ -76,18 +76,22 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
             pauseOnHover={false}
           >
             {data.contentfulLayoutProjects?.slides?.map((slide) => (
-              <div className="each-slide-effect w-[100vw] h-[100vh]">
-                <GatsbyImage
-                  image={slide?.heroImage?.gatsbyImageData}
-                  alt={slide?.title || ""}
-                  className="w-full h-full object-cover hidden md:block"
-                />
-                <GatsbyImage
-                  image={slide?.heroImage_m?.gatsbyImageData}
-                  alt={slide?.title || ""}
-                  className="w-full h-full object-cover md:hidden"
-                />
-              </div>
+              <>
+                <div className="each-slide-effect w-[100vw] h-[100vh] hidden md:block">
+                  <GatsbyImage
+                    image={slide?.heroImage?.gatsbyImageData}
+                    alt={slide?.title || ""}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="each-slide-effect w-[100vw] h-[100vh] md:hidden">
+                  <GatsbyImage
+                    image={slide?.heroImage_m?.gatsbyImageData}
+                    alt={slide?.title || ""}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </>
             ))}
           </Zoom>
           <div
