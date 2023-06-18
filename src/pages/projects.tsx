@@ -131,9 +131,6 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                     {tabs.map((tab) => (
                       <div
                         key={tab.id}
-                        data-sal="slide-down"
-                        data-sal-duration="500"
-                        data-sal-easing="ease"
                         className={`my-3 mx-20 pb-px font-libre font-normal text-[24px] cursor-pointer ${
                           active.id === tab.id
                             ? "border-b-[1px] border-white"
@@ -166,30 +163,25 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                   .slice((page - 1) * 3, page * 3)
                   .map((node: any) => (
                     <div
-                      data-sal="slide-up"
-                      data-sal-duration="500"
-                      data-sal-easing="ease"
+                      key={node?.title_en}
+                      className="w-full h-1/3 relative cursor-pointer"
+                      onClick={() =>
+                        (window.location.href = `/project/${encodeURI(
+                          node?.title_en?.toLowerCase().replace(/\s/g, "-")
+                        )}`)
+                      }
                     >
+                      <GatsbyImage
+                        image={node?.heroImage?.gatsbyImageData}
+                        alt={node?.title || ""}
+                        className={`w-full h-1/3 object-cover`}
+                      />
                       <div
-                        className="w-full h-1/3 relative cursor-pointer"
-                        onClick={() =>
-                          (window.location.href = `/project/${encodeURI(
-                            node?.title_en?.toLowerCase().replace(/\s/g, "-")
-                          )}`)
-                        }
+                        className={`flex flex-col-reverse p-3 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
                       >
-                        <GatsbyImage
-                          image={node?.heroImage?.gatsbyImageData}
-                          alt={node?.title || ""}
-                          className={`w-full h-1/3 object-cover`}
-                        />
-                        <div
-                          className={`flex flex-col-reverse p-3 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
-                        >
-                          <p className="text-[15px] font-libre text-right">
-                            {node?.title}
-                          </p>
-                        </div>
+                        <p className="text-[15px] font-libre text-right">
+                          {node?.title}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -250,6 +242,7 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                     .slice((page - 1) * 5, page * 5 - 3)
                     .map((node: any) => (
                       <div
+                        key={node.title_en}
                         className="w-1/2 relative cursor-pointer"
                         onClick={() =>
                           (window.location.href = `/project/${encodeURI(
@@ -277,6 +270,7 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                     .slice(page * 5 - 3, page * 5)
                     .map((node: any) => (
                       <div
+                        key={node.title_en}
                         className="w-1/3 relative cursor-pointer"
                         onClick={() =>
                           (window.location.href = `/project/${encodeURI(

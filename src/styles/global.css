@@ -34,6 +34,7 @@
   scroll-behavior: smooth;
   @apply text-white;
   @apply tracking-wide;
+  @apply active:text-white;
 }
 html,
 body {

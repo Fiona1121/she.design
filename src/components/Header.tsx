@@ -9,7 +9,7 @@ const Header: React.FC = () => {
   return (
     <div className="px-3 sm:px-5 flex justify-center items-center fixed top-0 left-0 w-full bg-black/20 z-50">
       <div className="xl:max-w-[2000px] w-full">
-        <nav className="hidden sm:flex w-full flex py-[0.75rem] justify-between items-center navbar">
+        <nav className="hidden sm:flex w-full py-[0.75rem] justify-between items-center navbar">
           <div
             className="hidden sm:flex logo-placeholder cursor-pointer"
             onClick={() => (window.location.href = "/")}
@@ -34,7 +34,7 @@ const Header: React.FC = () => {
             ))}
           </ul>
         </nav>
-        <nav className="flex sm:hidden w-full flex py-[0.75rem] justify-between items-center navbar relative">
+        <nav className="flex sm:hidden w-full py-[0.75rem] justify-between items-center navbar relative">
           <div
             className="logo-placeholder cursor-pointer"
             onClick={() => (window.location.href = "/")}
@@ -73,12 +73,12 @@ const Header: React.FC = () => {
               <ul className="list-none w-full h-full flex flex-col justify-center items-center">
                 {navLinks.map((nav, index) => (
                   <div
+                    key={nav.id}
                     data-sal="slide-down"
                     data-sal-duration="500"
                     data-sal-easing="ease"
                   >
                     <li
-                      key={nav.id}
                       className={`my-3 font-libre font-medium cursor-pointer text-[24px]`}
                       onClick={() => setActive(nav.title)}
                     >
