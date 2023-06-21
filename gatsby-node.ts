@@ -33,8 +33,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
             images {
               gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
             }
-            widthRatio
-            height
           }
         }
       }

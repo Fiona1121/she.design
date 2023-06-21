@@ -16,8 +16,6 @@ interface ProjectProps {
     bgColor: string;
     gallery?: {
       images: any[];
-      height: number;
-      widthRatio: string;
     }[];
   };
 }
