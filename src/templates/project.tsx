@@ -79,22 +79,14 @@ const Project = ({ pageContext }: ProjectProps) => {
                   <GatsbyImage
                     image={heroImage}
                     alt={title}
-                    className="w-full"
+                    className="object-cover w-full"
                   />
                 </div>
               </div>
               {gallery &&
                 gallery?.map((row: any) => {
                   return (
-                    <div
-                      className="grid gap-2"
-                      style={{
-                        gridTemplateColumns: row.widthRatio
-                          .split(" ")
-                          .map((col: string) => `${col}fr`)
-                          .join(" "),
-                      }}
-                    >
+                    <div className="flex gap-2">
                       {row.images.map((image: any) => (
                         <div
                           data-sal="slide-up"
@@ -105,9 +97,6 @@ const Project = ({ pageContext }: ProjectProps) => {
                             image={image.gatsbyImageData}
                             alt={title}
                             className="object-cover w-full"
-                            style={{
-                              height: `${row.height}vh`,
-                            }}
                           />
                         </div>
                       ))}
