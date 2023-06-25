@@ -75,8 +75,8 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
             arrows={false}
             pauseOnHover={false}
           >
-            {data.contentfulLayoutProjects?.slides?.map((slide) => (
-              <>
+            {data.contentfulLayoutProjects?.slides?.map((slide, index) => (
+              <React.Fragment key={`slide-${index}`}>
                 <div className="each-slide-effect w-[100vw] h-[100vh] hidden md:block">
                   <GatsbyImage
                     image={slide?.heroImage?.gatsbyImageData}
@@ -91,7 +91,7 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-              </>
+              </React.Fragment>
             ))}
           </Zoom>
           <div
@@ -104,7 +104,7 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
             <span></span>
           </div>
         </section>
-        <section className="px-3 sm:px-5 py-14 sm:pt-16 min-h-screen sm:h-[100vh] flex justify-center">
+        <section className="px-3 sm:px-5 py-14 sm:pt-16 min-h-screen flex justify-center">
           <div className="xl:max-w-[2000px] w-full h-full">
             {/* mobile design */}
             <div className="sm:hidden flex flex-col justify-center items-center">
@@ -236,14 +236,14 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                   </div>
                 ))}
               </div>
-              <div className="w-full grow flex flex-col justify-center items-center gap-2">
+              <div className="w-full h-[70vh] grow flex flex-col justify-center items-center gap-2">
                 <div className="w-full h-[60%] flex flex-row gap-2">
                   {filteredData
                     .slice((page - 1) * 5, page * 5 - 3)
                     .map((node: any) => (
                       <div
                         key={node.title_en}
-                        className="w-1/2 relative cursor-pointer"
+                        className="w-1/2 h-full relative cursor-pointer"
                         onClick={() =>
                           (window.location.href = `/project/${encodeURI(
                             node?.title_en?.toLowerCase().replace(/\s/g, "-")
@@ -271,7 +271,7 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                     .map((node: any) => (
                       <div
                         key={node.title_en}
-                        className="w-1/3 relative cursor-pointer"
+                        className="w-1/3 h-full relative cursor-pointer"
                         onClick={() =>
                           (window.location.href = `/project/${encodeURI(
                             node?.title_en?.toLowerCase().replace(/\s/g, "-")
@@ -343,10 +343,10 @@ export const query = graphql`
       slides {
         title
         heroImage {
-          gatsbyImageData(placeholder: BLURRED, width: 3000)
+          gatsbyImageData(placeholder: BLURRED, layout: CONSTRAINED)
         }
         heroImage_m {
-          gatsbyImageData(placeholder: BLURRED, width: 3000)
+          gatsbyImageData(placeholder: BLURRED, layout: CONSTRAINED)
         }
       }
     }
@@ -356,7 +356,11 @@ export const query = graphql`
         title
         title_en
         heroImage {
-          gatsbyImageData(placeholder: BLURRED, width: 3000)
+          gatsbyImageData(
+            placeholder: BLURRED
+            height: 1000
+            layout: CONSTRAINED
+          )
         }
         types
       }

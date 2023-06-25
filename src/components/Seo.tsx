@@ -123,28 +123,28 @@ const SEO: React.FC<SEOProps> = (props) => {
   const linkData = [
     {
       rel: "shortcut icon",
-      href: "/icons/favicon.ico",
+      href: "/favicon.ico",
     },
     {
       rel: "icon",
       type: "image/png",
       sizes: "32x32",
-      href: "/icons/favicon-32x32.png",
+      href: "/favicon-32x32.png",
     },
     {
       rel: "icon",
       type: "image/png",
       sizes: "16x16",
-      href: "/icons/favicon-16x16.png",
+      href: "/favicon-16x16.png",
     },
     {
       rel: "apple-touch-icon",
       sizes: "180x180",
-      href: "/icons/apple-touch-icon.png",
+      href: "/apple-touch-icon.png",
     },
     {
       rel: "manifest",
-      href: "/icons/site.webmanifest",
+      href: "/site.webmanifest",
     },
   ];
   return (
