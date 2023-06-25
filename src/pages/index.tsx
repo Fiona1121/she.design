@@ -84,6 +84,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
                   (item) =>
                     item.id !== data?.contentfulLayoutHome?.primaryProject?.id
                 )
+                .reverse()
                 .map((item, index) => {
                   return (
                     <div

@@ -25,15 +25,6 @@ const SEO: React.FC<SEOProps> = (props) => {
         description {
           description
         }
-        link_fb
-        link_ig
-        link_line
-        logo {
-          url
-        }
-        logo_m {
-          url
-        }
         logo_t {
           url
         }
@@ -44,15 +35,17 @@ const SEO: React.FC<SEOProps> = (props) => {
   const {
     title,
     description,
-    url = "",
-    link_fb,
-    link_ig,
-    link_line,
-    logo,
-    logo_m,
+    url = "https://www.sshedesign.com",
     logo_t,
-    author = "itzsyboo",
-    keywords = [],
+    author = "She.Design",
+    keywords = [
+      "諮詢規劃",
+      "專業設計",
+      "品牌識別",
+      "平面設計",
+      "包裝設計",
+      "書籍設計",
+    ],
   } = data.contentfulConfiguration;
 
   const siteTitle = props.title ? `${props.title} | ${title}` : title;
@@ -80,7 +73,7 @@ const SEO: React.FC<SEOProps> = (props) => {
     },
     {
       name: "og:type",
-      content: "article",
+      content: "website",
     },
     {
       name: "og:title",
