@@ -49,7 +49,7 @@ const SEO: React.FC<SEOProps> = (props) => {
   } = data.contentfulConfiguration;
 
   const siteTitle = props.title ? `${props.title} | ${title}` : title;
-  const siteDescription = props.description || description;
+  const siteDescription = props.description || description.description;
   const siteUrl = props.url || url;
   const siteAuthor = props.author || author;
   const siteImage = props.image || logo_t.url;
