@@ -56,7 +56,8 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
       node?.types ? node?.types[0] === active?.contentfulId : false
     ) || [];
 
-  const hasMore = filteredData.length > page * 5;
+  // const hasMore = filteredData.length > page * 5;
+  const hasMore = (pageNum: number) => filteredData.length > page * pageNum;
 
   React.useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -158,7 +159,7 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                   </div>
                 </div>
               </div>
-              <div className="w-full h-full flex flex-col justify-center items-center gap-2">
+              <div className="w-full h-[150vw] flex flex-col items-center gap-2">
                 {filteredData
                   .slice((page - 1) * 3, page * 3)
                   .map((node: any) => (
@@ -174,7 +175,7 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                       <GatsbyImage
                         image={node?.heroImage?.gatsbyImageData}
                         alt={node?.title || ""}
-                        className={`w-full h-1/3 object-cover`}
+                        className={`w-full h-full object-cover`}
                       />
                       <div
                         className={`flex flex-col-reverse p-3 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
@@ -204,7 +205,9 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                 </div>
                 <div
                   className="mx-2"
-                  onClick={() => setPage((page) => (hasMore ? page + 1 : page))}
+                  onClick={() =>
+                    setPage((page) => (hasMore(3) ? page + 1 : page))
+                  }
                 >
                   <StaticImage
                     src="../assets/arrowright.svg"
@@ -213,7 +216,7 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                     height={22}
                     placeholder="blurred"
                     className={`${
-                      hasMore ? "cursor-pointer opacity-100" : "opacity-50"
+                      hasMore(3) ? "cursor-pointer opacity-100" : "opacity-50"
                     }`}
                   />
                 </div>
@@ -312,7 +315,9 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                 </div>
                 <div
                   className="mx-2"
-                  onClick={() => setPage((page) => (hasMore ? page + 1 : page))}
+                  onClick={() =>
+                    setPage((page) => (hasMore(5) ? page + 1 : page))
+                  }
                 >
                   <StaticImage
                     src="../assets/arrowright.svg"
@@ -321,7 +326,7 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                     height={22}
                     placeholder="blurred"
                     className={`${
-                      hasMore ? "cursor-pointer opacity-100" : "opacity-50"
+                      hasMore(5) ? "cursor-pointer opacity-100" : "opacity-50"
                     }`}
                   />
                 </div>

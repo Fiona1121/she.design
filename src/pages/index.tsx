@@ -31,7 +31,7 @@ type IndexPageProps = {
 };
 
 const gridSpanConfig = [4, 4, 4, 6, 6, 12];
-const gridHeightConfig = [35, 35, 35, 50, 50, 80];
+const gridHeightConfig = [50/3, 50/3, 50/3, 50/2, 50/2, 50];
 
 const IndexPage = ({ data }: IndexPageProps) => {
   return (
@@ -67,7 +67,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
                         data?.contentfulLayoutHome?.primaryProject?.title ||
                         "primary-project"
                       }
-                      className="w-full object-cover h-[30vh]"
+                      className="w-full object-cover h-[50vw]"
                     />
                     <div
                       className={`flex flex-col-reverse p-3 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
@@ -84,7 +84,6 @@ const IndexPage = ({ data }: IndexPageProps) => {
                   (item) =>
                     item.id !== data?.contentfulLayoutHome?.primaryProject?.id
                 )
-                .reverse()
                 .map((item, index) => {
                   return (
                     <div
@@ -107,7 +106,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
                         <GatsbyImage
                           image={item.heroImage?.gatsbyImageData}
                           alt={item.title || "primary-project"}
-                          className="w-full object-cover h-[30vh]"
+                          className="w-full object-cover h-[50vw]"
                         />
                       </div>
                       <div
@@ -147,7 +146,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
                       data?.contentfulLayoutHome?.primaryProject?.title ||
                       "primary-project"
                     }
-                    className="w-full object-cover h-[80vh]"
+                    className="w-full object-cover h-[50vw]"
                   />
                 </div>
                 <div
@@ -188,7 +187,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
                             alt={item.title || "primary-project"}
                             className="w-full object-cover"
                             style={{
-                              height: `${gridHeightConfig[index % 6]}vh`,
+                              height: `${gridHeightConfig[index % 6]}vw`,
                             }}
                           />
                         </div>
@@ -226,7 +225,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulItemProject {
+    allContentfulItemProject(sort: { createdAt: DESC }) {
       nodes {
         id
         title
