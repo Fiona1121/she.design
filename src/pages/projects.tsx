@@ -138,6 +138,7 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                             : "border-none"
                         }`}
                         onClick={() => {
+                          setPage(1);
                           setActive(tab);
                           setTabMenuOpen(false);
                         }}
@@ -233,7 +234,10 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                         ? "border-b-[1px] border-white"
                         : "border-none"
                     }`}
-                    onClick={() => setActive(tab)}
+                    onClick={() => {
+                      setPage(1);
+                      setActive(tab);
+                    }}
                   >
                     {tab.title}
                   </div>
