@@ -185,7 +185,7 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
               </div>
               <div className="w-full flex justify-center items-center mt-10">
                 <div
-                  className="mx-2"
+                  className="mx-1"
                   onClick={() => setPage((page) => (page > 1 ? page - 1 : 1))}
                 >
                   <ArrowLeftIcon
@@ -195,7 +195,7 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                   />
                 </div>
                 <div
-                  className="mx-2"
+                  className="mx-1"
                   onClick={() =>
                     setPage((page) => (hasMore(3) ? page + 1 : page))
                   }

@@ -60,7 +60,7 @@ const Header: React.FC = () => {
           </div>
           <div className="sm:hidden flex flex-1 justify-end items-center">
             <span onClick={() => setToggle(!toggle)}>
-              <MenuIcon className="w-[20px] h-[20px] object-contain" />
+              <MenuIcon className="!w-[26px] !h-[26px]" />
             </span>
             <div
               className={`${
