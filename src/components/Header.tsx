@@ -1,6 +1,7 @@
 import * as React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import { navLinks } from "../contants";
+import { CloseIcon, MenuIcon } from "./Icons";
 
 const Header: React.FC = () => {
   const [active, setActive] = React.useState("Home");
@@ -59,11 +60,7 @@ const Header: React.FC = () => {
           </div>
           <div className="sm:hidden flex flex-1 justify-end items-center">
             <span onClick={() => setToggle(!toggle)}>
-              <StaticImage
-                src="../assets/menu.svg"
-                alt="menu"
-                className="w-[20px] h-[20px] object-contain"
-              />
+              <MenuIcon className="w-[20px] h-[20px] object-contain" />
             </span>
             <div
               className={`${
@@ -91,12 +88,7 @@ const Header: React.FC = () => {
                 className="fixed bottom-16 w-full flex justify-center items-center"
                 onClick={() => setToggle(false)}
               >
-                <StaticImage
-                  src="../assets/close.svg"
-                  alt="close"
-                  width={20}
-                  height={20}
-                />
+                <CloseIcon className="!w-[20px] !h-[20px] object-contain" />
               </div>
             </div>
           </div>

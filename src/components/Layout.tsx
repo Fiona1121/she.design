@@ -1,6 +1,7 @@
 import * as React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import fontColorContrast from "font-color-contrast";
 
 const Layout = ({
   children,
@@ -8,12 +9,21 @@ const Layout = ({
 }: {
   children: React.ReactNode;
   bgColor?: string;
-}) => (
-  <div className={`bg-[${bgColor}] w-full overflow-hidden`}>
-    <Header />
-    {children}
-    <Footer />
-  </div>
-);
+}) => {
+  const fontColor = fontColorContrast(bgColor);
+  return (
+    <div
+      className={`w-full overflow-hidden`}
+      style={{
+        backgroundColor: bgColor,
+        color: fontColor,
+      }}
+    >
+      <Header />
+      {children}
+      <Footer fontColor={fontColor} />
+    </div>
+  );
+};
 
 export default Layout;

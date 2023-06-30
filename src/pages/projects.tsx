@@ -1,9 +1,15 @@
 import * as React from "react";
 import { graphql } from "gatsby";
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Zoom } from "react-slideshow-image";
 import Layout from "../components/Layout";
 import SEO from "../components/Seo";
+import {
+  ArrowDownIcon,
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  CloseIcon,
+} from "../components/Icons";
 
 type IndexPageProps = {
   data: {
@@ -115,13 +121,7 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                   onClick={() => setTabMenuOpen(true)}
                 >
                   {active.title}
-                  <StaticImage
-                    src="../assets/arrowdown.svg"
-                    alt="arrow-down"
-                    width={12}
-                    height={12}
-                    className="ml-2"
-                  />
+                  <ArrowDownIcon className="!w-[16px] !h-[16px] ml-2" />
                 </div>
                 <div
                   className={`h-screen w-screen bg-black bg-opacity-90 fixed top-0 left-0 z-10 ${
@@ -151,12 +151,7 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                     className="fixed bottom-16 w-full flex justify-center items-center"
                     onClick={() => setTabMenuOpen(false)}
                   >
-                    <StaticImage
-                      src="../assets/close.svg"
-                      alt="close"
-                      width={20}
-                      height={20}
-                    />
+                    <CloseIcon className="!w-[20px] !h-[20px] object-contain" />
                   </div>
                 </div>
               </div>
@@ -193,13 +188,8 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                   className="mx-2"
                   onClick={() => setPage((page) => (page > 1 ? page - 1 : 1))}
                 >
-                  <StaticImage
-                    src="../assets/arrowleft.svg"
-                    alt="previous page"
-                    width={22}
-                    height={22}
-                    placeholder="blurred"
-                    className={`${
+                  <ArrowLeftIcon
+                    className={`!w-[22px] !h-[22px] ${
                       page > 1 ? "cursor-pointer opacity-100" : "opacity-50"
                     }`}
                   />
@@ -210,13 +200,8 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                     setPage((page) => (hasMore(3) ? page + 1 : page))
                   }
                 >
-                  <StaticImage
-                    src="../assets/arrowright.svg"
-                    alt="next page"
-                    width={22}
-                    height={22}
-                    placeholder="blurred"
-                    className={`${
+                  <ArrowRightIcon
+                    className={`!w-[22px] !h-[22px] ${
                       hasMore(3) ? "cursor-pointer opacity-100" : "opacity-50"
                     }`}
                   />
@@ -306,13 +291,8 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                   className="mx-2"
                   onClick={() => setPage((page) => (page > 1 ? page - 1 : 1))}
                 >
-                  <StaticImage
-                    src="../assets/arrowleft.svg"
-                    alt="previous page"
-                    width={22}
-                    height={22}
-                    placeholder="blurred"
-                    className={`${
+                  <ArrowLeftIcon
+                    className={`!w-[22px] !h-[22px] ${
                       page > 1 ? "cursor-pointer opacity-100" : "opacity-50"
                     }`}
                   />
@@ -323,13 +303,8 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                     setPage((page) => (hasMore(5) ? page + 1 : page))
                   }
                 >
-                  <StaticImage
-                    src="../assets/arrowright.svg"
-                    alt="next page"
-                    width={22}
-                    height={22}
-                    placeholder="blurred"
-                    className={`${
+                  <ArrowRightIcon
+                    className={`!w-[22px] !h-[22px] ${
                       hasMore(5) ? "cursor-pointer opacity-100" : "opacity-50"
                     }`}
                   />

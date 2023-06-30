@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@formkit/auto-animate": "^1.0.0-beta.6",
+    "font-color-contrast": "^11.1.0",
     "gatsby": "^5.8.1",
     "gatsby-plugin-image": "^3.9.0",
     "gatsby-plugin-scroll-reveal-with-new-react": "^0.0.8",

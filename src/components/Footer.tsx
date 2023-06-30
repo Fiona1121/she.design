@@ -1,8 +1,8 @@
 import * as React from "react";
-import { StaticImage } from "gatsby-plugin-image";
 import { graphql, useStaticQuery } from "gatsby";
+import { ArrowUpIcon, FacebookIcon, InstagramIcon, LineIcon } from "./Icons";
 
-const Footer: React.FC = () => {
+const Footer = ({ fontColor = "#fff" }: { fontColor: string }) => {
   const data = useStaticQuery(graphql`
     query {
       contentfulConfiguration {
@@ -14,52 +14,40 @@ const Footer: React.FC = () => {
   `);
 
   return (
-    <section className="px-3 sm:px-5 flex justify-center items-center py-6">
+    <section
+      className="px-3 sm:px-5 flex justify-center items-center py-6"
+      style={{
+        color: fontColor,
+      }}
+    >
       <div className="xl:max-w-[2000px] w-full flex-col">
         <div className="w-full flex flex-center justify-center items-center cursor-pointer">
           <div
             className="flex flex-col justify-center items-center"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            <StaticImage
-              src="../assets/arrowup.svg"
-              alt="arrowup"
-              height={22}
-              placeholder="blurred"
-            />
-            <p className="font-libre text-[22px] mt-2">Top</p>
+            <ArrowUpIcon className="!w-[22px] !h-[22px] object-contain" />
+            <p className="font-libre text-[22px] mt-1">Top</p>
           </div>
         </div>
         <div className="w-full flex justify-end items-center flex-row">
           <div
             onClick={() => window.open(data.contentfulConfiguration.link_fb)}
-            className="w-[28px] h-[28px] object-contain cursor-pointer mr-2 p-1"
+            className="w-[30px] h-[30px] object-contain cursor-pointer mr-1 p-1"
           >
-            <StaticImage
-              src="../assets/facebook.svg"
-              alt="facebook"
-              placeholder="blurred"
-            />
+            <FacebookIcon />
           </div>
           <div
             onClick={() => window.open(data.contentfulConfiguration.link_ig)}
-            className="w-[28px] h-[28px] object-contain cursor-pointer mr-2 p-1"
+            className="w-[30px] h-[30px] object-contain cursor-pointer mr-1 p-1"
           >
-            <StaticImage
-              src="../assets/instagram.svg"
-              alt="instagram"
-              placeholder="blurred"
-            />
+            <InstagramIcon />
           </div>
           <div
             onClick={() => window.open(data.contentfulConfiguration.link_line)}
-            className="w-[28px] h-[28px] object-contain cursor-pointer p-1"
+            className="w-[30px] h-[30px] object-contain cursor-pointer p-1"
           >
-            <StaticImage
-              src="../assets/line.svg"
-              alt="line"
-              placeholder="blurred"
-            />
+            <LineIcon />
           </div>
         </div>
       </div>

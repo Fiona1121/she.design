@@ -6,7 +6,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 interface ProjectProps {
   pageContext: {
     title: string;
-    title_en:string;
+    title_en: string;
     brand: string;
     description: {
       excerpt: string;
@@ -22,8 +22,16 @@ interface ProjectProps {
 }
 
 const Project = ({ pageContext }: ProjectProps) => {
-  const { title, title_en, brand, description, heroImage, types, bgColor, gallery } =
-    pageContext;
+  const {
+    title,
+    title_en,
+    brand,
+    description,
+    heroImage,
+    types,
+    bgColor,
+    gallery,
+  } = pageContext;
 
   return (
     <Layout bgColor={bgColor}>
@@ -108,7 +116,12 @@ const Project = ({ pageContext }: ProjectProps) => {
         <section className={`px-3 py-4 sm:px-5 flex justify-center grow`}>
           <div className="xl:max-w-[2000px] w-full flex flex-col justify-between">
             <div className="flex flex-col items-stretch justify-center">
-              <h1 className="project-title">{title} {title_en}</h1>
+              <h1 className="project-title">
+                {title}
+                {title.toLowerCase() !== title_en.toLowerCase()
+                  ? ` ${title_en}`
+                  : ``}
+              </h1>
               <div
                 className="text-center project-description"
                 style={{ whiteSpace: "pre-wrap" }}
@@ -131,7 +144,7 @@ const Project = ({ pageContext }: ProjectProps) => {
                 <div
                   className="project-type"
                   style={{
-                    borderLeft: `1px solid white`,
+                    borderLeft: `2px solid`,
                     paddingLeft: `0.5rem`,
                     textOverflow: `ellipsis`,
                     whiteSpace: `nowrap`,
