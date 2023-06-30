@@ -31,7 +31,7 @@ type IndexPageProps = {
 };
 
 const gridSpanConfig = [4, 4, 4, 6, 6, 12];
-const gridHeightConfig = [50/3, 50/3, 50/3, 50/2, 50/2, 50];
+const gridHeightConfig = [55 / 3, 55 / 3, 55 / 3, 55 / 2, 55 / 2, 50];
 
 const IndexPage = ({ data }: IndexPageProps) => {
   return (
@@ -72,7 +72,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
                     <div
                       className={`flex flex-col-reverse p-3 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
                     >
-                      <p className="text-[15px] font-libre text-right">
+                      <p className="text-[15px] font-montserrat text-right">
                         {data?.contentfulLayoutHome?.primaryProject?.title}
                       </p>
                     </div>
@@ -112,7 +112,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
                       <div
                         className={`flex flex-col-reverse p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
                       >
-                        <p className="text-[15px] font-libre text-right">
+                        <p className="text-[15px] font-montserrat text-right">
                           {item.title}
                         </p>
                       </div>
@@ -152,7 +152,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
                 <div
                   className={`flex flex-col-reverse p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
                 >
-                  <p className="text-[18px] font-libre text-right">
+                  <p className="text-[22px] font-montserrat text-right">
                     {data?.contentfulLayoutHome?.primaryProject?.title}
                   </p>
                 </div>
@@ -194,7 +194,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
                         <div
                           className={`flex flex-col-reverse p-6 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-0 ease-in-out duration-300 bg-black hover:opacity-80`}
                         >
-                          <p className="text-[18px] font-libre text-right">
+                          <p className="text-[22px] font-montserrat text-right">
                             {item.title}
                           </p>
                         </div>

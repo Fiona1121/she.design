@@ -33,13 +33,13 @@ const Footer = ({ fontColor = "#fff" }: { fontColor: string }) => {
         <div className="w-full flex justify-end items-center flex-row">
           <div
             onClick={() => window.open(data.contentfulConfiguration.link_fb)}
-            className="w-[30px] h-[30px] object-contain cursor-pointer mr-1 p-1"
+            className="w-[30px] h-[30px] object-contain cursor-pointer mr-1.5 p-1"
           >
             <FacebookIcon />
           </div>
           <div
             onClick={() => window.open(data.contentfulConfiguration.link_ig)}
-            className="w-[30px] h-[30px] object-contain cursor-pointer mr-1 p-1"
+            className="w-[30px] h-[30px] object-contain cursor-pointer mr-1.5 p-1"
           >
             <InstagramIcon />
           </div>

@@ -111,7 +111,7 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
             <span></span>
           </div>
         </section>
-        <section className="px-3 sm:px-5 py-14 sm:pt-16 min-h-screen flex justify-center">
+        <section className="px-3 sm:px-5 py-14 sm:pt-16 min-h-screen flex justify-center items-center">
           <div className="xl:max-w-[2000px] w-full h-full">
             {/* mobile design */}
             <div className="sm:hidden flex flex-col justify-center items-center">
@@ -228,8 +228,8 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                   </div>
                 ))}
               </div>
-              <div className="w-full h-[70vh] grow flex flex-col justify-center items-center gap-2">
-                <div className="w-full h-[60%] flex flex-row gap-2">
+              <div className="w-full grow flex flex-col justify-center items-center gap-2">
+                <div className="w-full h-[25vw] flex flex-row gap-2">
                   {filteredData
                     .slice((page - 1) * 5, page * 5 - 3)
                     .map((node: any) => (
@@ -257,7 +257,7 @@ const ProjectsPage = ({ data }: IndexPageProps) => {
                       </div>
                     ))}
                 </div>
-                <div className="w-full h-[40%] flex flex-row gap-2">
+                <div className="w-full h-[18vw] flex flex-row gap-2">
                   {filteredData
                     .slice(page * 5 - 3, page * 5)
                     .map((node: any) => (
