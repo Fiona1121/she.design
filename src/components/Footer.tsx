@@ -15,7 +15,7 @@ const Footer = ({ fontColor = "#fff" }: { fontColor: string }) => {
 
   return (
     <section
-      className="px-2 sm:px-3 flex justify-center items-center py-6"
+      className="px-2 flex justify-center items-center py-6"
       style={{
         color: fontColor,
       }}

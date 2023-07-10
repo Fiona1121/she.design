@@ -38,7 +38,7 @@ const Project = ({ pageContext }: ProjectProps) => {
       <Seo title={title} description={description.excerpt} />
       <main className="min-h-screen flex flex-col">
         <section
-          className={`px-2 sm:px-3 pt-14 sm:pt-16 pb-8 flex justify-center grow-0`}
+          className={`px-2 pt-14 sm:pt-16 pb-8 flex justify-center grow-0`}
         >
           <div className="xl:max-w-[2000px] w-full h-full">
             <div className="flex flex-col gap-2 mobile-design">
@@ -113,7 +113,7 @@ const Project = ({ pageContext }: ProjectProps) => {
             </div>
           </div>
         </section>
-        <section className={`px-2 sm:px-3 py-4 flex justify-center grow`}>
+        <section className={`px-2 py-4 flex justify-center grow`}>
           <div className="xl:max-w-[2000px] w-full flex flex-col justify-between">
             <div className="flex flex-col items-stretch justify-center">
               <h1 className="project-title">

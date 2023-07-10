@@ -1,1 +1,10 @@
-<svg id="圖層_1" data-name="圖層 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 595.28 241.32"><defs><style>.cls-1{fill:#fbfbfc;}</style></defs><circle class="cls-1" cx="448.52" cy="120.97" r="95.96" transform="translate(226.6 529.08) rotate(-76.56)"/><path class="cls-1" d="M93.59,121A95.84,95.84,0,0,0,50.64,41V201A95.87,95.87,0,0,0,93.59,121Z"/><path class="cls-1" d="M198.72,216.93A96,96,0,1,0,170,29.39V212.55A95.93,95.93,0,0,0,198.72,216.93Z"/></svg>
+<svg id="圖層_1" data-name="圖層 1" xmlns="http://www.w3.org/2000/svg" viewBox="50.64 0 595.28 241.32">
+  <defs>
+    <style>.cls-1{fill:#fbfbfc;}</style>
+  </defs>
+  <circle class="cls-1" cx="448.52" cy="120.97" r="95.96"
+    transform="translate(226.6 529.08) rotate(-76.56)" />
+  <path class="cls-1" d="M93.59,121A95.84,95.84,0,0,0,50.64,41V201A95.87,95.87,0,0,0,93.59,121Z" />
+  <path class="cls-1"
+    d="M198.72,216.93A96,96,0,1,0,170,29.39V212.55A95.93,95.93,0,0,0,198.72,216.93Z" />
+</svg>
